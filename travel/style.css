@@ -95,6 +95,10 @@ header {
     margin: 0;
 }
 
+.header-nav__item:hover {
+    background: rgba(186, 95, 74, 0.7);
+    transition: .3s linear;
+}
 
 .header__button {
     display: flex;
