@@ -18,7 +18,7 @@ html {
 body {
     width: 1440px;
     overflow-x: hidden;
-    margin: 0 auto;
+    margin: 0;
 }
 
 header {
@@ -42,6 +42,7 @@ header {
     justify-content: center;
     align-items: center;
 }
+
 .nav__links {
     text-decoration: none;
     color: #fff;
@@ -78,7 +79,6 @@ header {
     line-height: 39px;
     letter-spacing: 0em;
     text-align: left;
-
 }
 
 .header-nav__item {
@@ -150,7 +150,7 @@ header {
     font-size: 20px;
     line-height: 24px;
     color: #FFFFFF;
-    margin: 55px 169px 46px 0;
+    margin: 33px 169px 46px 0;
 }
 
 .preview__form {
@@ -200,23 +200,21 @@ header {
     background-color: #0D606F;
     right: 18px;
     top: 18px;
-
     font-family: 'Red Hat Text', sans-serif;
     font-size: 24px;
     font-weight: 500;
 }
-
 
 .main__wrapper {
     display: flex;
     flex-direction: column;
     justify-content: center;
     flex-wrap: nowrap;
-
 }
 
 .steps {
     width: 1440px;
+    margin-top: 10px;
 }
 
 .steps-title__wrapper, .destinations-title__wrapper, .stories-title__wrapper {
@@ -225,17 +223,18 @@ header {
     flex-direction: row;
     justify-content: center;
     font-family: 'Red Hat Text', sans-serif;
+    text-transform: uppercase;
     font-style: normal;
     font-weight: 500;
-    font-size: 40px;
-    line-height: 53px;
+    font-size: 27px;
+    line-height: 40px;
     color: #F2785C;
     width: 1440px;
 }
 
 .steps__title {
-    margin-top: 80px;
-    margin-bottom: 40px;
+    margin-top: 78px;
+    margin-bottom: 45px;
 } 
 
 .steps-icon__name {
@@ -244,23 +243,23 @@ header {
     font-weight: bold;
     font-size: 20px;    
     color: #0D606F; 
-    margin-top: 30px;
+    margin-top: 28px;
 }
 
-
-
-.stories__title {
-    margin-top: 80px;
-    margin-bottom: 40px;
+.steps-icon__bike {
+    margin-left: 205px;
+    margin-right: 205px;
 }
 
+.steps-icon__calendar {
+    margin-left: 160px;
+    margin-right: 223px;
+}
 
 .steps__icon {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-
+    align-items: center;    
 }
 
 .steps-icon__item {
@@ -282,12 +281,16 @@ header {
     width: 1440px;
 }
 
+.destinations__container {
+    margin-top: 10px;
+}
+
 .destinations-slider__content {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    margin-top: 24px;
-    margin-bottom: 40px;
+    margin-top: -20px;
+    margin-bottom: 35px;
 }
 
 .destinations__sliders {
@@ -318,9 +321,7 @@ header {
     width: 1440px;
     overflow: hidden;
     align-content: center;
-
 }
-
 
 .destinations-slider__img {
     position: relative;
@@ -338,15 +339,12 @@ header {
     height: 42px;
     bottom: 85px;
     left: 45px;
-
-
     font-family: 'Red Hat Text', sans-serif;
     text-transform: uppercase;
     font-style: normal;
     font-weight: 500;
     font-size: 32px;
     line-height: 42px;
-
     color: #FFFFFF;
 }
 
@@ -356,14 +354,12 @@ header {
     height: 42px;
     bottom: 85px;
     left: 45px;
-
     font-family: 'Red Hat Text', sans-serif;
     text-transform: uppercase;
     font-style: normal;
     font-weight: 500;
     font-size: 32px;
     line-height: 42px;
-
     color: #FFFFFF;
 }
 
@@ -373,15 +369,12 @@ header {
     height: 42px;
     bottom: 85px;
     left: 45px;
-
-
     font-family: 'Red Hat Text', sans-serif;
     text-transform: uppercase;
     font-style: normal;
     font-weight: 500;
     font-size: 32px;
     line-height: 42px;
-
     color: #FFFFFF;
 }
 
@@ -395,18 +388,22 @@ header {
 .destinations__button {
     width: 228px;
     height: 59px;
-
     background: #0D606F;
     box-shadow: 0px 0px 3px rgba(13, 96, 111, 0.08), 0px 2px 3px rgba(13, 96, 111, 0.16);
     border-radius: 10px;
     border: none;
-
     font-family: 'Red Hat Text', sans-serif;
     font-style: normal;
     font-weight: 500;
     font-size: 24px;
     color: #FFFFFF;
     cursor: pointer;
+}
+
+
+.stories__title {
+    margin-top: 90px;
+    margin-bottom: 40px;
 }
 
 .stories {
@@ -418,7 +415,6 @@ header {
     display: flex;
     flex-direction: column;
     padding-top: 25px;
-    
 }
 
 .stories-container__wrapper {
@@ -439,8 +435,7 @@ header {
     height: 250px;
     filter: drop-shadow(0px 4px 4px #0D606F);
     border-radius: 16px;
-    margin: 15px 40px 15px 120px;
-   
+    margin: 15px 40px 15px 120px;  
 }
 
 .stories-container__title {
@@ -479,7 +474,7 @@ header {
     flex-direction: row;
     justify-content: center;
     align-items: center;  
-    margin: 40px 0;  
+    margin: 30px 0;  
 }
 
 .stories-container__button {
@@ -496,7 +491,6 @@ header {
     line-height: 32px;
     color: #FFFFFF;
     cursor: pointer;
-
 }
 
 .footer {
@@ -504,6 +498,10 @@ header {
     display: flex;
     flex-direction: row;
     align-items: center;
+    color: #fff;
+    align-content: center;
+    justify-content: flex-end;
+    margin-right: 110px;
 }
 
 .wrapper__footer {
@@ -526,7 +524,6 @@ header {
 
 .footer__links {
     display: flex;
-
 }
 
 .footer-links__list {
@@ -537,6 +534,12 @@ header {
     list-style: none;
 }
 
-img {
-    margin: -3px 7px;
+.footer-links__list img {
+    width: 30px;
+    height: 30px;
+    margin: 0 12px;
+}
+
+.footer > p {
+    margin-right: 330px;
 }
