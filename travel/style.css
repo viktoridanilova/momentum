@@ -418,7 +418,7 @@ header {
 .stories__container {
     display: flex;
     flex-direction: column;
-    padding-top: 25px;
+    padding-top: 26px;
 }
 
 .stories-container__wrapper {
