@@ -902,7 +902,7 @@ header {
         height: 65px;
     }
 
-    ..footer-links__list {
+    .footer-links__list {
         justify-content: center;
 
     }
