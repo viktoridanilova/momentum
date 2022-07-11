@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Aleo:wght@300&family=Joan&family=Magra&family=Red+Hat+Text&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Aleo:wght@400&family=Joan&family=Magra&family=Red+Hat+Text&display=swap');
 
 
 * {
@@ -580,11 +580,13 @@ header {
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
+        padding: 28px 25px 0px 0px;
     }
 
     .header__logo {
         width: 29px;
         height: 30px;
+        margin-left: 16px;
     }
 
    .header__title, .header__button, .preview__title, .preview__text, .header__nav {
@@ -593,62 +595,118 @@ header {
 
    .wrapper-nav__mobile {
         display: block;
-        display: flex;
+
    }
 
    .menu-icon__mobile {
-        display: block;
-        width: 27px;
-        height: 17px;
-        
+        cursor: pointer;
         position: relative;
         z-index: 5;
-        cursor: pointer;
+        top: -18px;
+
    }
 
-   .menu-part__icon__mobile {
+   .menu-icon__mobile span,
+   .menu-icon__mobile span:before,
+   .menu-icon__mobile span:after {
         position: absolute;
-
-        top: calc(50% - 1.3px);
-        left: 0;
-        width: 100%;
+        display: block;
         height: 2.6px;
         background-color: #FFFFFF;
         border-radius: 1.3px;
+        transition: 0.3s ease-in-out;
    }
 
-   .menu-part__icon__mobile:first-child {
-        top: 0;
-
-   }
-
-   .menu-part__icon__mobile:last-child {
-        top: auto;
-        bottom: 0;
-
+    .menu-icon__mobile span:before,
+    .menu-icon__mobile span:after {
+        content: "";
     }
 
-   .header-nav__list__mobile {
+    .menu-icon__mobile span {
+        right: 0;
+        top: 16px;
+        width: 27px;
+    }
+
+    .menu-icon__mobile span:before {
+        left: 0;
+        top: -7px;
+        width: 27px;
+    }
+
+    .menu-icon__mobile span:after {
+        left: 0;
+        top: 7px;
+        width: 27px;
+    }
+
+    .menu-icon__mobile.close span {
+        transform: rotate(-45deg);
+        top: 13px;
+        right: 100px;
+        width: 20px;
+    }
+
+    .menu-icon__mobile.close span:before {
+        top: 0px;
+        right: 100px;
+        transform: rotate(90deg);
+        width: 20px;
+    }
+
+    .menu-icon__mobile.close span:after {
+        top: 0px;
+        left: 0;
+        transform: rotate(90deg);
+        opacity:0;
+        width:0;
+    }
+
+    .header__nav__mobile {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: end;
+        padding: 5px 15px;
         position: absolute;
         top: 0;
-        right:0%; 
-        list-style: none;
+        right: 0;
+        opacity: 0;
         background: #F2785C;
         box-shadow: 0px 4px 3px rgba(13, 96, 111, 0.25);
         border-radius: 10px;
         width: 165px;
         height: 250px;
-   }
+        z-index: 1;
+        transition: all 0.3s ease-in-out;
+        text-align: end;
+        justify-content: center;
+    }
 
-   .nav__links__mobile {
+    .header-nav__list__mobile {
+        margin-top: 20px;
+        margin-right: 3px;
+    }
+
+    .header__nav__mobile.overlay {
+        opacity: 1;
+    }
+
+    .header__nav__mobile li {
+        list-style:none;
+    }
+
+    .header__nav__mobile a {
         font-family: 'Red Hat Text', sans-serif;
         font-style: normal;
         font-weight: 500;
         font-size: 16px;
         line-height: 21px;
         color: #FFFFFF;
-        text-decoration: none;
-   }
+        display:block;
+        margin-bottom: 10px;
+        text-decoration:none;
+    }
 
    .preview {
         margin: 0;
@@ -657,14 +715,13 @@ header {
     .preview__input {
         width: 360px;
         height: 48px;
-        margin: 67px 15px 61px 15px;
+        margin: 53px 15px 61px 15px;
     }
      
     .preview-input__text {
         height: 48px;
-
         margin: 0px;
-        padding: 16px 117px 20px 16px;
+        padding: 20px 104px 20px 13px;
         font-size:14px;
     }
         
@@ -691,17 +748,24 @@ header {
     }
     
     .steps-title__wrapper, .destinations-title__wrapper, .stories-title__wrapper {
-        font-size: 14px;
+        font-size: 0.6rem;
         line-height: 19px;
     }
 
     .steps__title {
-        margin-top: 20px;
-        margin-bottom: 20px;
+        margin-top: 10px;
+        margin-bottom: 21px;
     }
     
-    .steps-icon__bike, .steps-icon__calendar, .steps-icon__airplane {
+    .steps-icon__bike {
+        padding: 19px;
+    } 
+    .steps-icon__calendar {
         padding: 18px;
+    } 
+
+    .steps-icon__airplane {
+        padding: 21px;
     }
 
     .steps-icon-name__wrapper {
@@ -711,8 +775,16 @@ header {
         align-items: flex-start;
     }
 
-    .steps-icon__bike, .steps-icon__airplane,.steps-icon__calendar  {
-        margin-left: 0;
+    .steps-icon__bike {
+        margin-left: 10px;
+        margin-right: 0;
+    } 
+    .steps-icon__airplane {
+        margin-left: 30px;
+        margin-right: 0;
+    }
+    .steps-icon__calendar  {
+        margin-left: 20px;
         margin-right: 0;
     }
 
@@ -734,6 +806,8 @@ header {
 
     .steps-icon__name {
         font-size: 10px;
+        font-weight: 400;
+        margin-top: 20px;
     }
 
     .destinations__container, .destinations__button {
@@ -746,8 +820,8 @@ header {
     }
 
     .destinations-title {
-        margin-top: 22px;
-        margin-bottom: 20px;
+        margin-top: 19px;
+        margin-bottom: 9px;
     }
 
     .destinations-container__mobile {
@@ -760,6 +834,7 @@ header {
         justify-content: center;
         margin-top: -20px;
         margin-bottom: -7px;
+        margin-left: -60px;
     }
     
     .destinations__sliders__mobile {
@@ -852,6 +927,26 @@ header {
         line-height: 26px;
         color: #FFFFFF;
     }
+
+    .destinations-slider__arrow {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .destinations__slider__mobile, .destinations__sliders__mobile {
+        bottom: 55px;
+        right: 50px;
+    }
+
+    .arrow {
+        position: relative;
+        width: 50px;
+        height: 25px;
+        bottom: 150px;
+        margin: 0 10px;
+    }
     
     .destinations-button_wrapper__mobile {
         display: flex;
@@ -860,12 +955,7 @@ header {
         align-items: center; 
     }
 
-    .slider-button__left {
-        position: relative;
-        width: 25px;
-        height: 15px;
-        background: rgba(242, 120, 92, 0.5);
-    }
+  
     
     .destinations__button__mobile {
         width: 92px;
@@ -880,6 +970,7 @@ header {
         font-size: 11px;
         color: #FFFFFF;
         cursor: pointer;
+        margin-top: -25px;
     }
 
     .wrapper__footer {
@@ -898,8 +989,8 @@ header {
     }
 
     .stories__title {
-        margin-top: 20px;
-        margin-bottom: 10px;
+        margin-top: 19px;
+        margin-bottom: 11px;
     }
     
     .stories__container__mobile {
@@ -924,7 +1015,7 @@ header {
         height: 130px;
         filter: drop-shadow(0px 4px 4px #0D606F);
         border-radius: 16px;
-        margin: 10px 10px 5px 15px;  
+        margin: 10px 10px 5px 0px;  
     }
     
     .stories-container__title__mobile {
@@ -934,8 +1025,8 @@ header {
         font-size: 11px;
         line-height: 13px;
         color: #0D606F;
-        margin-top: 15px;
-        margin-bottom: 10px;
+        margin: 14px 0 4px 2px;
+        text-align: inherit;
     }
     
     .stories-container__text__mobile {
@@ -943,11 +1034,10 @@ header {
         height: 102px;
         font-family: 'Aleo', serif;
         font-style: normal;
-        font-weight: bold;
         font-size: 9px;
         line-height: 11px;
         color: #0D606F;
-        margin-bottom: 20px;
+        padding-top: 6px;
     }
     
     .stories-container__link__mobile {
@@ -981,6 +1071,7 @@ header {
         line-height: 15px;
         color: #FFFFFF;
         cursor: pointer;
+        margin-top: 6px;
     }
 
     .footer__text {
