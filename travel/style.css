@@ -141,7 +141,7 @@ header {
     display: flex;
     flex-direction: column;
     max-width: 100%;
-    width: 70%;
+    width: 60%;
     margin: 32px 0 0 120px;
 }
 
@@ -715,6 +715,7 @@ header {
 
    .preview {
         margin: 0;
+        width: 100%;
    }
 
     .preview__input {
