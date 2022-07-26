@@ -1139,7 +1139,7 @@ header {
         position: absolute;
         z-index: 1;
         left: 140px;
-        bottom: -113px;
+        bottom: -148px;
         display: inline;
     }
     .destinations__slider__mobile.active {
@@ -1234,7 +1234,7 @@ header {
         z-index: 1;
         position: absolute;
         width: 90%;
-        bottom: 22px;
+        bottom: -14px;
         margin: 0 15px;
     }
 
