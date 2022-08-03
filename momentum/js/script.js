@@ -2,6 +2,10 @@ const watch = document.querySelector('.time');
 const calendar = document.querySelector('.date');
 const greetings = document.querySelector('.greeting');
 const name = document.querySelector('.name');
+const background = document.querySelector('body');
+const slidePrev = document.querySelector('.slide-prev');
+const slideNext = document.querySelector('.slide-next');
+
 
 
 function showTime() {
@@ -71,3 +75,52 @@ function setLocalStorage() {
     }
   }
   window.addEventListener('load', getLocalStorage);
+
+  function getRandomNum(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+  
+  function getImageNumber() {
+    return converNumberToString(getRandomNum(1, 20));
+  }
+
+  function converNumberToString(number) {
+    if (number > 0 && number <= 9) {
+      return number.toString().padStart(2, "0");
+    } else return number;
+  }
+
+  let randomImageNumber = getImageNumber();
+  setBg(randomImageNumber)
+  
+  function getSlideNext() {
+   if(randomImageNumber == 20) {
+    randomImageNumber = 0;
+   }
+   randomImageNumber++
+   setBg(converNumberToString(randomImageNumber))
+  }
+
+  function getSlidePrev() {
+    if (randomImageNumber == 1) {
+      randomImageNumber = 21;
+    }
+
+    randomImageNumber--;
+    setBg(converNumberToString(randomImageNumber))
+    
+  }
+
+  function setBg(imageNumber) {
+    const img = new Image();
+    img.src = `https://raw.githubusercontent.com/viktoridanilova/stage1-tasks/assets/images/${getTimeOfDay()}/${imageNumber}.jpg`;
+    img.onload = () => { 
+    background.style.background = `url(${img.src}) center/cover rgba(0, 0, 0, 0.5)`;
+  };
+}
+
+  slidePrev.addEventListener('click', getSlidePrev);
+
+  slideNext.addEventListener('click', getSlideNext);
