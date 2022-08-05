@@ -11,6 +11,9 @@ const weatherDescription = document.querySelector('.weather-description');
 const inputCity = document.querySelector('.city');
 const wind = document.querySelector('.wind');
 const humidity = document.querySelector('.humidity');
+const changeQuote = document.querySelector('.change-quote');
+const quote = document.querySelector('.quote');
+const author = document.querySelector('.author');
 
 
 
@@ -133,17 +136,25 @@ function setLocalStorage() {
 
 
   async function getWeather() {  
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${inputCity.value}&lang=en&appid=4b9833cf58524be6314802104496e329&units=metric`;
+    const value = inputCity.value ? inputCity.value : "Minsk"
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${value}&lang=en&appid=4b9833cf58524be6314802104496e329&units=metric`;
     const res = await fetch(url);
-    const data = await res.json(); 
-
-    weatherIcon.className = 'weather-icon owf';
-
-    weatherIcon.classList.add(`owf-${data.weather[0].id}`);
-    temperature.textContent = `${Math.floor(data.main.temp)}°C`;
-    weatherDescription.textContent = data.weather[0].description;
-    wind.textContent = `Wind speed: ${Math.floor(data.wind.speed)} m/s`;
-    humidity.textContent = `Humidity: ${data.main.humidity}%`;
+    const data = await res.json();
+ 
+    if (res.status === 200 && data.cod !== (400 & 404) && data.weather) {
+      weatherIcon.className = 'weather-icon owf';
+      weatherIcon.classList.add(`owf-${data.weather[0].id}`);
+      temperature.textContent = `${Math.floor(data.main.temp)}°C`;
+      weatherDescription.textContent = data.weather[0].description;
+      wind.textContent = `Wind speed: ${Math.floor(data.wind.speed)} m/s`;
+      humidity.textContent = `Humidity: ${data.main.humidity}%`;
+    } else {
+      weatherIcon.classList = "";
+      temperature.textContent = "The city not found";
+      weatherDescription.textContent = "";
+      wind.textContent = "";
+      humidity.textContent = "";
+    } 
   }
   getWeather()
 
@@ -165,3 +176,27 @@ function setLocalStorage() {
   }
   window.addEventListener('load', getLocalStorageCity);
   window.addEventListener('load', getWeather);
+
+  const quotesList = []
+
+  async function getQuotes() {  
+    
+    const quotes = 'data.json';
+    fetch(quotes)
+    .then(res => res.json())
+    .then(data => { 
+      quotesList.push(data)
+      setRandomQuotes()
+    });
+    
+  }
+  getQuotes();
+
+  function setRandomQuotes() {
+    const randomNum = getRandomNum(0,10)
+
+    quote.innerHTML = quotesList[0][randomNum].text;
+    author.innerHTML = quotesList[0][randomNum].author
+  }
+
+  changeQuote.addEventListener("click", setRandomQuotes)
