@@ -279,7 +279,18 @@ function setLocalStorage() {
   buttonPrev.addEventListener('click', playPrev);
   buttonNext.addEventListener('click', playNext);
 
+  let greetingTranslation = {
+    "english":
+    {
+      "greeting": "greeting"
+    },
+    "russian":
+    {
+      "greeting": "приветствие"
+    }
+  }
 
+ 
 
 
   

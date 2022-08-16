@@ -25,6 +25,7 @@ body {
   transition: background-image 1s ease-in-out;
 }
 
+
 .header {
   display: flex;
   justify-content: space-between;
@@ -267,6 +268,28 @@ body {
 
 .author {
   min-height: 20px;
+}
+
+.lang-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+a {
+  border-radius: 10px;
+  color: #36454A;
+  background: linear-gradient(to top, #A4D3E0, #A4D3E0 50%, #CBE3EB 50%);
+  box-shadow: 2px 2px 3px black;
+  text-decoration: none;
+  width: 40px;
+  height: 30px;
+  padding: 6px;
+  margin: 10px;
+}
+
+a.active {
+  background: #4e8c9d;
 }
 
 @media (max-width: 768px) {
