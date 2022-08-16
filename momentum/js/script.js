@@ -1,3 +1,6 @@
+import playList from './playList.js';
+
+
 const watch = document.querySelector('.time');
 const calendar = document.querySelector('.date');
 const greetings = document.querySelector('.greeting');
@@ -14,6 +17,13 @@ const humidity = document.querySelector('.humidity');
 const changeQuote = document.querySelector('.change-quote');
 const quote = document.querySelector('.quote');
 const author = document.querySelector('.author');
+const playListContainer = document.querySelector('.play-list');
+const buttonPrev = document.querySelector('.play-prev');
+const buttonPlayOrStop = document.querySelector('.play');
+const buttonNext = document.querySelector('.play-next');
+let audio = new Audio();
+let currentSong = null;
+let playNum = 0;
 
 
 
@@ -40,22 +50,22 @@ function getTimeOfDay() {
     const currentDate = new Date();
 
     const morning = new Date();
-    morning.setHours(6,00,0);
+    morning.setHours(6,0,0);
     const morningEnd = new Date();
     morningEnd.setHours(11,59,0);
     
     const afternoon = new Date();
-    afternoon.setHours(12,00,0);
+    afternoon.setHours(12,0,0);
     const afternoonEnd = new Date();
     afternoonEnd.setHours(17,59,0);
 
     const evening = new Date();
-    evening.setHours(18,00,0);
+    evening.setHours(18,0,0);
     const eveningEnd = new Date();
     eveningEnd.setHours(23,59,0);
 
     const night = new Date();
-    night.setHours(00,00,0);
+    night.setHours(0,0,0);
     const nightEnd = new Date();
     nightEnd.setHours(5,59,0);
     if (currentDate >= morning && currentDate <= morningEnd) {
@@ -134,12 +144,14 @@ function setLocalStorage() {
 
   slideNext.addEventListener('click', getSlideNext);
 
-
   async function getWeather() {  
-    const value = inputCity.value ? inputCity.value : "Minsk"
+
+    const value = inputCity.value !== "" ? inputCity.value : "Minsk"
+    console.log(value)
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${value}&lang=en&appid=4b9833cf58524be6314802104496e329&units=metric`;
     const res = await fetch(url);
     const data = await res.json();
+    
  
     if (res.status === 200 && data.cod !== (400 & 404) && data.weather) {
       weatherIcon.className = 'weather-icon owf';
@@ -196,7 +208,80 @@ function setLocalStorage() {
     const randomNum = getRandomNum(0,10)
 
     quote.innerHTML = quotesList[0][randomNum].text;
-    author.innerHTML = quotesList[0][randomNum].author
+    author.innerHTML = quotesList[0][randomNum].author;
   }
 
-  changeQuote.addEventListener("click", setRandomQuotes)
+  changeQuote.addEventListener("click", setRandomQuotes);
+
+
+
+  playList.forEach(el => {
+    const li = document.createElement('li');
+    li.classList.add('play-item');
+    li.textContent = el.title;
+    playListContainer.append(li);
+  })
+  
+  function playOrPauseAudio() {
+    if (audio.paused) {    
+      audio.src = playList[playNum].src  
+      audio.play()
+      audio.currentTime = 0;
+      buttonPlayOrStop.classList.add('pause'); 
+      document.querySelectorAll(".play-item")[playNum].style.setProperty("--color", "green")
+    }
+    else {
+      audio.pause();
+      buttonPlayOrStop.classList.remove('pause'); 
+    }  
+  }
+  
+  audio.addEventListener("timeupdate", () => {
+    if (!audio.paused && Math.floor(audio.currentTime) === playList[playNum].duration) {
+        playNext();
+    }
+    
+  })
+
+
+  buttonPlayOrStop.addEventListener('click', playOrPauseAudio);
+
+  function playNext() {
+    if (playNum >= 3) {
+      playNum = -1
+    }
+    playNum++;
+    toggleActiveSong()
+    audio.src = playList[playNum].src
+    audio.play()  
+  }
+
+  function playPrev() {
+    if (playNum <= 0) {
+      playNum = 4
+    }
+    playNum--;
+    toggleActiveSong()
+    audio.src = playList[playNum].src
+    audio.play()  
+    
+  }
+
+  function toggleActiveSong() {
+    const querySongList = document.querySelectorAll(".play-item")
+    querySongList.forEach(song => {
+      song.style.setProperty("--color", "white")
+    })
+
+    querySongList[playNum].style.setProperty("--color", "green")
+  }
+
+  buttonPrev.addEventListener('click', playPrev);
+  buttonNext.addEventListener('click', playNext);
+
+
+
+
+  
+
+
