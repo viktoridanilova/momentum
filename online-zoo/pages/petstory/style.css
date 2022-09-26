@@ -442,7 +442,7 @@ body {
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin: 39px 0px 61px 0px
+    margin: 42px 0px 61px 0px;
 }
 
 .pick-images__wrapper {
@@ -542,19 +542,19 @@ body {
 }
 
 .user1 {
-    padding: 15px 61px 10px 16px;
+    padding: 15px 61px 5px 16px;
 }
 
 .user2 {
-    padding: 15px 37px 10px 16px;
+    padding: 15px 37px 5px 16px;
 }
 
 .user3 {
-    padding: 15px 36px 10px 16px;
+    padding: 15px 36px 5px 16px;
 }
 
 .user4 {
-    padding: 15px 35px 10px 16px;
+    padding: 15px 35px 5px 16px;
 }
 
 .wrapper-icon {
@@ -763,6 +763,10 @@ body {
     color: #FFFFFF;
 }
 
+.footer-right__form {
+    margin-top: -12px;
+}
+
 .footer-form {
     display: flex;
     flex-direction: row;
@@ -815,4 +819,12 @@ form:invalid input[type="submit"] {
 
 .footer-author {
     padding-bottom: 10px;
+}
+
+.footer-wrapper__icon:hover {
+    background: #4B9200;
+}
+
+.footer-left__links:hover {
+    color: #4B9200;
 }

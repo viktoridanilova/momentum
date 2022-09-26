@@ -253,10 +253,13 @@ body {
 .progress-bar__money-label {
     position: relative;
     display: inline-flex;
+    font-weight: 500;
     font-size: 26px;
+    line-height: 140%;
     top: 40px;
     right: 20px;
     width: 0;
+    text-transform: uppercase;
 }
 
 .progress-bar__money-input {
@@ -502,6 +505,10 @@ body {
     color: #FFFFFF;
 }
 
+.footer-right__form {
+    margin-top: -12px;
+}
+
 .footer-form {
     display: flex;
     flex-direction: row;
@@ -555,4 +562,12 @@ form:invalid input[type="submit"] {
 
 .footer-author {
     padding-bottom: 10px;
+}
+
+.footer-wrapper__icon:hover {
+    background: #4B9200;
+}
+
+.footer-left__links:hover {
+    color: #4B9200;
 }
