@@ -22,11 +22,14 @@ body {
     background: #000000;
     height: 80px;
     color: #FFFFFF;
-
     display: flex;
-    /* justify-content: space-evenly; */
     align-items: center;
     cursor: pointer;
+}
+
+.logo-link {
+    text-decoration: none;
+    color: #FFFFFF;
 }
 
 .logo {
@@ -70,7 +73,6 @@ body {
 
 .navigation-list__items {
     margin-right: 58px;
-    
 }
 
 .author {
@@ -86,6 +88,10 @@ body {
     text-decoration: none;
 }
 
+.active {
+    color: #F9804B;
+}
+
 .navigation-list__link:hover {
     color: #F9804B;
 }
@@ -98,7 +104,7 @@ body {
     width: 100%;
     max-width: 1600px;
     height: 700px;
-    background-image: url('/online-zoo/assets/images/Giant-Panda.jpg');
+    background-image: url('../../assets/images/Giant-Panda.jpg');
     background-position: bottom;
 }
 
@@ -150,6 +156,10 @@ body {
     color: #FFFFFF;
 }
 
+.button-about:hover {
+    background: #E47209;
+}
+
 .wrapper-backstage-and-pets {
     width: 100%;
     height: 1829px;
@@ -177,7 +187,6 @@ body {
     width: 465px;
     height: 403px;
     margin: 42px -75px 0 84px;
-
 }
 
 .backstage-title {
@@ -225,6 +234,14 @@ body {
     cursor: pointer;
 }
 
+.arrow-right:hover {
+    background: #4B9200;
+}
+
+.arrow-left:hover {
+    background: #4B9200;
+}
+
 .wrapper-pets {
     display: flex;
     flex-direction: row;
@@ -253,6 +270,23 @@ body {
     cursor: pointer;
 }
 
+.pets-blocks:hover {
+    border: none;
+}
+
+.pets-blocks:hover img {
+    transform: scale(1.1);
+    transition: .2s linear;
+}
+
+.pets-blocks:hover .wrapper-pets__blocks {
+    transform: translateY(-30px);
+    background-color: #111115;
+    color:white;
+    border-radius: 5px;
+    transition: .4s linear;
+}
+
 .pets-blocks__img {
     width: 366px;
     height: 366px;
@@ -271,14 +305,12 @@ body {
     font-size: 16px;
     line-height: 140%;
     text-transform: uppercase;
-    color: #000000;
 }
 
 .pets-blocks__description {
     font-weight: 300;
     font-size: 15px;
     line-height: 120%;
-    color: #000000;
 }
 
 .pets-blocks__icon-banana {
@@ -311,6 +343,10 @@ body {
     text-transform: uppercase;
     color: #FFFFFF;
     margin-left: 76px;
+}
+
+.button-pets:hover {
+    background: #E47209;
 }
 
 .background-palm {
@@ -414,7 +450,6 @@ body {
     flex-direction: column;
 }
 
-
 .pick-images__background {
     width: 168px;
     height: 168px;
@@ -460,6 +495,10 @@ body {
     color: #FFFFFF;
 }
 
+.button-pick:hover {
+    background: #E47209;
+}
+
 .wrapper-testimonials {
     display: flex;
     flex-direction: column;
@@ -470,8 +509,6 @@ body {
     height: 919px;
     background: #FFFFFF;
 }
-
-
 
 .testimonials-title {
     font-weight: 400;
@@ -579,6 +616,11 @@ body {
     height: 6px;
     background: #FE9013;
     border-radius: 5px;
+    cursor: pointer;
+}
+
+.scroll:hover {
+    background: #E47209;
 }
 
 .button, .footer-left__button {
@@ -594,6 +636,14 @@ body {
     text-align: center;
     text-transform: uppercase;
     color: #FFFFFF;
+}
+
+.button:hover {
+    background: #E47209;
+}
+
+.footer-left__button:hover {
+    background: #E47209;
 }
 
 .testimonials-background-and-button {
@@ -670,7 +720,7 @@ body {
 }
 
 .icon-youtube {
-    padding: 6px 4px 7px 4px;
+    padding: 3px 4px 7px 4px;
 }
 
 .facebook, .twitter, .instagram, .youtube {
@@ -713,7 +763,7 @@ body {
     color: #FFFFFF;
 }
 
-.wrapper-input {
+.footer-form {
     display: flex;
     flex-direction: row;
     margin: 14px 0 100px 0;
@@ -737,12 +787,23 @@ body {
     width: 129px;
     height: 42px;
     background: #F1F3F2;
-    border: 1px solid #4B9200;
+    border: 1px solid #333B41;
     border-radius: 5px;
     font-weight: 400;
     font-size: 16px;
     line-height: 140%;
-    color: #4B9200;
+    color: #000000;
+    cursor: pointer;
+}
+
+form:valid input[type="submit"] {
+    border: 1px solid #333B41;
+    color: #000000;
+}
+
+form:invalid input[type="submit"] {
+    border: 1px solid #D31414;
+    color: #D31414;
 }
 
 .footer-author__block {
