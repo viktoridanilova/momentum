@@ -100,13 +100,10 @@ a:hover {
 
 .header {
     height: 80px;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 140%;
     color: #FFFFFF;
     background: #000000;
     backdrop-filter: blur(2px);
-    font-weight: 400;
+    font-weight: 500;
     font-size: 16px;
     line-height: 140%;
     padding: 14px 0;
@@ -173,6 +170,8 @@ a:hover {
 }
 
 .content_ellipse {
+    width: 465px;
+    height: 465px;
     margin-bottom: 8px;
 }
 
@@ -234,6 +233,13 @@ a:hover {
     flex-direction: row;
     align-items: center;
     margin-top: 140px;
+}
+
+.backstage__img {
+    width: 609px;
+    height: 403px;
+    background-image: url('../../assets/images/bamboo-cap.jpg');
+    display: inline-block;
 }
 
 .backstege__content {
@@ -335,10 +341,52 @@ a:hover {
     transition: .4s linear;
 }
 
-.animal-card__img {
-    width: 100%;
-    max-width: 366px;
+.animal-card__img-1 {
+    background-image: url('../../assets/images/Rectangle5.jpg');
+    width: 366px;
     height: 366px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.animal-card__img-2 {
+    background-image: url('../../assets/images/Rectangle5(1).jpg');
+    width: 366px;
+    height: 366px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.animal-card__img-3 {
+    background-image: url('../../assets/images/Rectangle5(2).jpg');
+    width: 366px;
+    height: 366px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.animal-card__img-4 {
+    background-image: url('../../assets/images/Rectangle5(3).jpg');
+    width: 366px;
+    height: 366px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.animal-card__img-5 {
+    background-image: url('../../assets/images/Rectangle5(4).jpg');
+    width: 366px;
+    height: 366px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.animal-card__img-6 {
+    background-image: url('../../assets/images/Rectangle5(5).jpg');
+    width: 366px;
+    height: 366px;
+    display: inline-block;
+    cursor: pointer;
 }
 
 .animal-card__content {
@@ -361,14 +409,20 @@ a:hover {
 }
 
 .pets_palm {
+    background-image: url(../../assets/images/palm_foto.png);
+    width: 292px;
+    height: 460px;
+    display: inline-block;
     position: relative;
     bottom: 226px;
     left: -5.5%;
 }
 
 .pets_strelitzia {
+    background-image: url('../../assets/images/strelitzia1.png');
     width: 368px;
     height: 275px;
+    display: inline-block;
     position: relative;
     bottom: 41px;
     left: 6%;
@@ -537,6 +591,10 @@ a:hover {
 }
 
 .testimonials_background {
+    background-image: url('../../assets/images/leav_foto.png');
+    width: 247px;
+    height: 390px;
+    display: inline-block;
     position: relative;
     bottom: 10px;
 }
@@ -664,6 +722,283 @@ form:invalid input[type="submit"] {
 
 
 @media (max-width: 1000px) and (min-width: 641px) {
-   
+    body {
+        width: 100%;
+        max-width: 1000px;
+    }
+    h1 {
+        width: 400px;
+        height: 320px;
+        font-weight: 700;
+        font-size: 85px;
+        line-height: 75%;
+        padding: 43px 0 0 0;
+        right: 8%;
+    }
+    
+    h2 {
+        /* margin-bottom: 22px; */
+    }
+    
+    .h2_light {
+        margin-bottom: 23px;
+        margin-left: -18px;
+    }
+
+    .header {
+        padding: 14px 14px;
+    }
+    
+    .header__wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .header__navigation {
+        padding-left: 49px;
+    }
+    
+    .navigation__link {
+        padding: 0 25px;
+    }
+    .watch-online {
+        height: 504px;
+    }
+    
+    .watch-online__wrapper {
+        background-image: url('../../assets/images/GiantPanda.jpg');
+    }
+    
+    .watch-online__content {
+        padding: 0;
+        width: 82%;
+        overflow: hidden;
+    }
+    
+    .content_ellipse {
+        width: 367px;
+        height: 367px;
+        margin-bottom: 0;
+        position: relative;
+        top: -11px;
+    }
+
+    .button_ellipse-small {
+        position: absolute;
+        top: 423px;
+        right: 14%;
+    }
+
+    .backstage {
+        height: 670px;
+    }
+    
+    .layout-2-column {
+        max-width: 940px;
+        height: 427px;
+        margin-top: 100px;
+    }
+    
+    .backstage__img {
+        width: 455px;
+        height: 408px;
+        background-image: url('../../assets/images/bamboo-cap-small.jpg');
+    }
+    
+    .backstege__content {
+        height: 427px;
+        margin-left: 3%;
+    }
+    
+    .backstege-background {
+        left: 100%;
+    }
+
+    .pets {
+        height: 1073px;
+    }
+    
+    .pets__wrapper {
+        height: 801px;
+    }
+    
+    .pets__button-left {
+        left: 35%;
+        top: 1622px;
+    }
+    
+    .pets__button-right {
+        right: 35.5%;
+        top: 1622px;
+    }
+    
+    .layout-3-column {
+        width: 100%;
+        max-width: 941px;
+        height: 353px;
+    }
+    
+    .first {
+        margin-bottom: 93px;
+    }
+    
+    .animal-card__img-1 {
+        background-image: url('../../assets/images/Rectangle5small.jpg');
+        width: 294px;
+        height: 294px;
+    }
+    
+    .animal-card__img-2 {
+        background-image: url('../../assets/images/EaglesSmall.jpg');
+        width: 294px;
+        height: 294px;
+    }
+    
+    .animal-card__img-3 {
+        background-image: url('../../assets/images/CheetahsSmall.jpg');
+        width: 294px;
+        height: 294px;
+    }
+    
+    .animal-card__img-4 {
+        background-image: url('../../assets/images/GorillasSmall.jpg');
+        width: 294px;
+        height: 294px;
+    }
+    
+    .animal-card__img-5 {
+        background-image: url('../../assets/images/AlligatorsSmallcrok.jpg');
+        width: 294px;
+        height: 294px;
+    }
+    
+    .animal-card__img-6 {
+        background-image: url('../../assets/images/PenguinsSmall.jpg');
+        width: 294px;
+        height: 294px;
+    }
+    
+    .pets__background-and-button {
+        display: flex;
+        justify-content: space-around;
+        position: relative;
+    
+    }
+    
+    .pets_palm {
+        background-image: url(../../assets/images/palm_foto_small.png);
+        width: 194px;
+        height: 202px;
+        top: 71px;
+        left: -3.5%;
+    }
+    
+    .pets_strelitzia {
+        background-image: url('../../assets/images/strelitzia_small.png');
+        width: 253px;
+        height: 180px;
+        top: 92px;
+        left: 5%;
+    }
+
+    .pick__wrapper {
+        height: 876px;
+        display: flex;
+        justify-content: center;
+        padding-top: 30px;
+    }
+    
+    .wrapper-light {
+        max-width: 940px;
+        height: 796px;
+    }
+    
+    .pick__block {
+        height: 192px;
+        padding: 29px 31px 0px 49px;
+    }
+    
+    .pick_subtitle {
+        margin-bottom: 20px;
+    }
+    
+    .pick__button {
+        margin-top: 9px;
+    }
+
+    .testimonials {
+        height: 842px;
+    }
+    
+    .testimonials__wrapper {
+        padding-top: 100px;
+    }
+    
+    .layout-4-column {
+        width: 100%;
+        max-width: 940px;
+        height: 412px;
+        margin-top: 31px;
+    }
+    
+    .testimonials__user-card {
+        max-width: 293px;
+    }
+    
+    .user-card__content {
+        max-width: 259px;
+        height: 303px;
+        margin-top: 0;
+    }
+    
+    .testimonials__background-and-button {
+        height: 194px;
+    }
+    
+    .testimonials__button {
+        top: 49px;
+        left: 29px;
+    }
+    
+    .testimonials_background {
+        background-image: url('../../assets/images/leav_fotoSmall.png');
+        height: 238px;
+        left: 51px;
+        top: 5px;
+    }
+    
+    .testimonials__scroll {
+        max-width: 390px;
+        height: 8px;
+    }
+
+    .testimonials__scroll::-webkit-slider-thumb {
+        width: 75px;
+        height: 6px;
+    }
+
+    .passive {
+        display: none;
+    }
+    
+    .layout-3-row {
+        max-width: 939px;
+        height: 360x;
+    }
+
+    .footer__form {
+        margin-right: 30px;
+    }
+    
+    input[type="email"] {
+        margin: 15px 5px 0 0;
+    }
+        
+    .footer__navigation {
+        margin-bottom: 11px;
+        margin-left: 100px;
+    }
+    
 
 }
