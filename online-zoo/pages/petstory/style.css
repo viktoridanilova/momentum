@@ -132,9 +132,11 @@ a:hover {
     padding-left: 51px;
 }
 
-.header__logo {
+.logo {
+    background-image: url('../../assets/icons/logo_footer.png');
     width: 82px;
     height: 52px;
+    display: inline-block;
     padding-left: 15px;
 }
 
@@ -259,6 +261,10 @@ a:hover {
 }
 
 .backstege-background {
+    background-image: url('../../assets/images/flower_foto1.png');
+    width: 204px;
+    height: 605px;
+    display: inline-block;
     position: relative;
     top: -73%;
     left: 87%;
@@ -657,6 +663,14 @@ a:hover {
     align-items: flex-end;
 }
 
+.footer-logo {
+    background-image: url('../../assets/icons/logo_footer.png');
+    width: 82px;
+    height: 52px;
+    display: inline-block;
+    padding-left: 15px;
+}
+
 .block3_social-media-link {
     display: flex;
     flex-direction: row;
@@ -726,6 +740,7 @@ form:invalid input[type="submit"] {
         width: 100%;
         max-width: 1000px;
     }
+
     h1 {
         width: 400px;
         height: 320px;
@@ -736,17 +751,13 @@ form:invalid input[type="submit"] {
         right: 8%;
     }
     
-    h2 {
-        /* margin-bottom: 22px; */
-    }
-    
     .h2_light {
         margin-bottom: 23px;
         margin-left: -18px;
     }
 
     .header {
-        padding: 14px 14px;
+        padding: 11px 20px 14px 29px;
     }
     
     .header__wrapper {
@@ -883,7 +894,6 @@ form:invalid input[type="submit"] {
         display: flex;
         justify-content: space-around;
         position: relative;
-    
     }
     
     .pets_palm {
@@ -963,8 +973,9 @@ form:invalid input[type="submit"] {
     
     .testimonials_background {
         background-image: url('../../assets/images/leav_fotoSmall.png');
+        width: 195px;
         height: 238px;
-        left: 51px;
+        left: 0px;
         top: 5px;
     }
     
@@ -1000,5 +1011,814 @@ form:invalid input[type="submit"] {
         margin-left: 100px;
     }
     
+}
 
+@media (max-width: 910px) and (min-width: 320px) {
+
+    body {
+        width: 100%;
+        max-width: 910px;
+    }
+
+    .header {
+        padding: 14px 14px;
+    }
+
+    .header__navigation {
+        display: none;
+    }
+
+    .header__block-right {
+        display: none;
+    }
+
+    .burger-menu {
+        width: 18px;
+        height: 2px;
+        background: #FFFFFF;
+        border-radius: 2px;
+        position: absolute;
+        left: 95%;
+        display: block;
+    }
+
+    .burger-menu::before {
+        content: '';
+        width: 18px;
+        height: 2px;
+        background: #FFFFFF;
+        border-radius: 2px;
+        top: -4px;
+        position: absolute;
+    }
+
+    .burger-menu::after {
+        content: '';
+        width: 18px;
+        height: 2px;
+        background: #FFFFFF;
+        border-radius: 2px;
+        top: 4px;
+        position: absolute;
+    }
+    
+    .backstage__img {
+        display: none;
+    }
+    
+    .backstege__content {
+        width: 100%;
+        max-width: 495px;
+        height: 367px;
+    }
+
+    .backstege-background {
+        background-image: url('../../assets/images/flower_tablet.png');
+        width: 132px;
+        height: 465px;
+        left: 78%;
+    }
+
+    .animal-card__img-1 {
+        background-image: url('../../assets/images/Rectangle5tablet.jpg');
+        width: 285px;
+        height: 285px;
+    }
+    
+    .animal-card__img-2 {
+        background-image: url('../../assets/images/Eaglestablet.jpg');
+        width: 285px;
+        height: 285px;
+    }
+    
+    .card-none {
+        display: none;
+    }
+    
+    .animal-card__img-4 {
+        background-image: url('../../assets/images/Gorillastablet.jpg');
+        width: 285px;
+        height: 285px;
+    }
+    
+    .animal-card__img-5 {
+        background-image: url('../../assets/images/AlligatorsTablet.jpg');
+        width: 285px;
+        height: 285px;
+        display: inline-block;
+        cursor: pointer;
+    }
+    
+    .footer__links, .footer__form {
+        display: none;
+    }
+
+    .footer__navigation {
+        margin-left: 0px;
+    }
+
+}
+
+@media (max-width: 640px) and (min-width: 320px) {
+
+    body {
+        width: 100%;
+        max-width: 640px;
+    }
+
+    .main {
+        padding-top: 34px;
+    }
+
+    h1 {
+        width: 255px;
+        height: 204px;
+        font-weight: 700;
+        font-size: 54.2894px;
+        line-height: 75%;
+        padding-top: 38px;
+        right: 3%;
+    }
+    
+    .h2_light {
+        font-size: 42px;
+        margin-bottom: 20px;
+        margin-left: -15px;
+    }
+    .header {
+        position: fixed;
+        width: 100%;
+        z-index: 2;
+        height: 34px;
+        padding: 3px 20px;
+    }
+    
+    .header__wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .logo {
+        background-image: url('../../assets/icons/logo_tablet.png');
+        width: 46px;
+        height: 25px;
+        display: inline-block;
+        padding-left: 15px;
+    }
+
+    .burger-menu {
+        left: 94%;
+    }
+    
+    .watch-online {
+        height: 339px;
+    }
+    
+    .watch-online__wrapper {
+        background-image: url('../../assets/images/GiantPandaTablet.jpg');
+        background-position: bottom;
+    }
+    
+    .watch-online__content {
+        padding-top: 12px;
+        width: 89%;
+    }
+    
+    .content_ellipse {
+        width: 238px;
+        height: 238px;
+        margin-bottom: 10px;
+    }
+    
+    .button_ellipse-small {
+        margin-top: 0px;
+        position: absolute;
+        top: 279px;
+        right: 50%;
+    } 
+
+    .backstage {
+        height: 507px;
+    }
+    
+    .layout-2-column {
+        margin-top: 42px;
+    }
+    
+    .backstege__content {
+        max-width: 495px;
+        height: 367px;
+        margin-left: 20px;
+    }
+
+    .backstege-background {
+        top: -88%;
+        left: 79%;
+    }
+
+    .content__text {
+        margin-bottom: 25px;
+    }
+
+    .content__text-2 {
+        margin-top: 22px;
+    }
+
+    .pets {
+        height: 970px;
+    }
+    
+    .pets__wrapper {
+        height: 756px;
+    }
+    
+    .pets__button-left {
+        left: 38%;
+        top: 1223px;
+    }
+    
+    .pets__button-right {
+        right: 38%;
+        top: 1223px;
+    }
+    
+    .layout-3-column {
+        max-width: 600px;
+        height: 332px;
+    }
+    
+    .first {
+        margin-bottom: 92px;
+    }
+    
+    .animal-card__content {
+        padding: 0px 12px 0px 11px;
+    }
+
+    .animal-card__text {
+        font-size: 12px;
+        line-height: 120%;
+    }
+
+    .pets_palm {
+        background-image: url(../../assets/images/palm_foto_small.png);
+        width: 194px;
+        height: 202px;
+        top: 13px;
+        left: -9.5%;
+    }
+    
+    .pets_strelitzia {
+        background-image: url('../../assets/images/strelitzia_tablet.png');
+        width: 179px;
+        height: 131px;
+        top: 84px;
+        left: 0%;
+    }
+    .pets__button {
+        margin-top: 60px;
+        margin-left: -2%;
+    }
+
+    .pick__wrapper {
+        height: 781px;
+        padding-top: 19px;
+    }
+    
+    .wrapper-light {
+        max-width: 640px;
+        height: 741px;
+    }
+    
+    .pick__block {
+        height: 246px;
+        padding: 10px 3px 0px 19px;
+    }
+    
+    .pick_subtitle {
+        font-size: 22px;
+        margin-bottom: 16px;
+    }
+    
+    .title__layout-3-column {
+        margin: 32px 0 18px 0px;
+    }
+    
+    .pick_layout-3-column {
+        max-width: 588px;
+        height: 244px;
+    }
+    
+    .pick__img-content {
+        width: 100%;
+        max-width: 168px;
+        height: 46px;
+        margin-top: 25px;
+    }
+    
+    .pick__arrow {
+        display: none;
+    }
+
+    .pick__arrow-1, .pick__arrow-2 {
+        background-image: url('../../assets/icons/arrow.png');
+        width: 89px;
+        height: 29px;
+        display: inline-block;
+        position: absolute;
+        top: 327px;
+    }
+
+    .pick__arrow-1 {
+        left: 24%;
+    }
+
+    .pick__arrow-2 {
+        left: 57%;
+    }
+    
+    .pick__button {
+        margin-top: -18px;
+    }
+    
+    .testimonials {
+        height: 668px;
+    }
+    
+    .testimonials__wrapper {
+        padding-top: 60px;
+    }
+    
+    .layout-4-column {
+        max-width: 600px;
+        height: 357px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin-top: 32px;
+    }
+
+    .passive {
+        display: none;
+    }
+    
+    .testimonials__user-card {
+        max-width: 600px;
+        height: 109px;
+        padding: 11px 19px 0px 13px;
+    }
+    
+    .user-card__content {
+        max-width: 565px;
+        height: 162px;
+        margin-top: 1px;
+    }
+    
+    .testimonials__background-and-button {
+        height: 194px;
+    }
+    
+    .testimonials__button {
+        width: 240px;
+        height: 54px;
+        top: 38px;
+        left: 31%;
+    }
+    
+    .testimonials_background {
+        background-image: url('../../assets/images/leav_fotoTablet.png');
+        width: 116px;
+        height: 156px;    
+        top: 37px;
+    }
+    
+    .testimonials__scroll {
+        display: none;
+    }
+    
+    .footer__wrapper {
+        height: 282px;
+        overflow: hidden;
+    }
+
+    .layout-3-row {
+        max-width: 599px;
+        height: 257px;
+    }
+
+    .footer__block-1 {
+        margin-bottom: 28px;
+    }
+
+    .block3_social-media-link {
+        position: relative;
+        left: 573px;
+        bottom: 139px;
+    }
+
+    .footer__links_img {
+        padding: 5px;
+        margin: 0 12px 20px 0;
+    }
+    
+    .footer__navigation {
+        margin-left: -101px;
+        margin-bottom: 67px;
+    }
+
+    .navigation__link {
+        padding: 0 18px;
+    }
+
+    .footer__author {
+        margin-bottom: 70px;
+    }
+}
+
+@media (max-width: 574px) and (min-width: 320px) {
+
+    .button_ellipse-small {
+        top: 295px;
+        right: 10%;
+    }
+
+    h2, .h2_light, h3 {
+        font-weight: 400;
+        font-size: 24px;
+        line-height: 120%;
+    }
+
+    .pets {
+        height: 1522px;
+    }
+
+    .pets__wrapper {
+        height: 1408px;
+    }
+
+    .pets__button-left, .pets__button-right {
+        display: none;
+    }
+
+    .layout-3-column {
+        display: block;
+        max-width: 285px;
+        height: 694px;
+    }
+
+    .first {
+        margin-bottom: 0;
+    }
+
+    .pets__button {
+        margin-top: 0;
+    }
+
+    .pets_palm {
+        top: -88px;
+    }
+
+    .pets_strelitzia {
+        top: -27px;
+    }
+
+    .pick {
+        height: 1082px;
+    }
+
+    .pick__wrapper {
+        height: 1082px;
+    }
+
+    .wrapper-light {
+        height: 1042px;
+    }
+
+    .pick_text, .pick_text_and_link {
+        display: none;
+    }
+
+    .pick__block {
+        height: 105px;
+    }
+
+    .pick_layout-3-column {
+        display: block;
+        max-width: 168px;
+        height: 715px;
+    }
+    
+    .pick__arrow-1, .pick__arrow-2 {
+        display: none;
+    }
+
+    .pick__arrow-1inverted {
+        background-image: url('../../assets/icons/arrow-inverted.svg');
+        width: 25px;
+        height: 90px;
+        display: inline-block;
+        position: absolute;
+    }
+
+    .pick__arrow-1inverted {
+        top: 368px;
+        right: 27%;
+    }
+
+    .pick__arrow-2inverted {
+        background-image: url('../../assets/icons/arrow-inverted.svg');
+        width: 25px;
+        height: 90px;
+        display: inline-block;
+        position: absolute;
+    }
+
+    .pick__arrow-2inverted {
+        bottom: 334px;
+        right: 27%;
+    }
+
+    .footer__wrapper {
+        height: 334px;
+        overflow: hidden;
+    }
+
+    .footer__block-3 {
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+
+    .navigation__link {
+        padding: 0 6px;
+    }
+}
+
+@media (width: 320px) {
+    body {
+        width: 100%;
+        max-width: 320px;
+    }
+
+    h1 {
+        width: 128px;
+        height: 102px;
+        font-size: 28px;
+        padding-top: 18px;
+    }
+
+    h2 {
+        margin-bottom: 11px;
+    }
+
+    .h2_light {
+        margin-bottom: 12px;
+    }
+
+    h5 {
+        font-size: 12px;
+        line-height: 115%;
+        text-transform: uppercase;
+    }
+
+    .header {
+        padding: 2px 11px;
+    }
+    
+    .burger-menu {
+        left: 91%;
+    }
+    
+    .watch-online {
+        height: 187px;
+    }
+    
+    .watch-online__wrapper {
+        background-image: url('../../assets/images/GiantPandaMobile.jpg');
+    }
+    
+    .watch-online__content {
+        padding-top: 23px;
+        width: 88%;
+    }
+    
+    .content_ellipse {
+        width: 119px;
+        height: 119px;
+        margin-bottom: 0px;
+    }
+
+    .button_ellipse-small {
+        top: 240px;
+        right: 3%;
+    }
+
+    .backstage {
+        height: 524px;
+    }
+    
+    .layout-2-column {
+        margin-top: 97px;
+    }
+    
+    .backstege__content {
+        max-width: 299px;
+        height: 388px;
+        margin-left: 11px;
+    }
+
+    .backstege-background {
+        background-image: url('../../assets/images/flower_mobile.png');
+        width: 35px;
+        height: 190px;
+        left: 89%;
+    }
+
+    .content__text {
+        margin-bottom: 19px;
+    }
+
+    .content__text-2 {
+        margin-top: 7px;
+        font-size: 16px;
+        line-height: 140%;
+    }
+
+    .pets {
+        height: 1530px;
+    }
+
+    .pets__wrapper {
+        height: 1408px;
+        justify-content: space-around;
+    }
+
+    .layout-3-column {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        max-width: 285px;
+        height: 697px;
+    }
+
+    .animal-card__img-1, .animal-card__img-2, .animal-card__img-4, .animal-card__img-5 {
+        width: 283px;
+        height: 285px;
+    }
+
+    .pets__button {
+        position: absolute;
+        top: 8px;
+    }
+    
+    .pets_palm {
+        background-image: url(../../assets/images/palm_fotoMobile.png);
+        width: 56px;
+        height: 72px;
+        top: 50px;
+        left: -15.5%;
+    }
+    
+    .pets_strelitzia {
+        background-image: url('../../assets/images/strelitzia_mobile.png');
+        width: 68px;
+        height: 67px;
+        top: 56px;
+        left: 16%;
+    }
+
+    .wrapper-light {
+        max-width: 300px;
+    }
+
+    .pick__block {
+        padding: 21px 3px 0px 9px;
+    }
+
+    .pick_subtitle {
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 120%;
+        text-align: center;
+    }
+
+    .title__layout-3-column {
+        margin: 41px 0 19px 0px;
+    }
+
+    .pick__img-content {
+        margin-top: 5px;
+        margin-bottom: 17px;
+    }
+
+    .pick__arrow-1inverted {
+        top: 358px;
+        right: 12%;
+    }
+
+    .pick__arrow-2inverted {
+        bottom: 345px;
+        right: 12%;
+    }
+
+    .testimonials {
+        height: 580px;
+    }
+
+    .testimonials__wrapper {
+        padding-top: 31px;
+    }
+    
+    .layout-4-column {
+        max-width: 299px;
+        margin-top: 19px;
+    }
+
+    .testimonials__user-card {
+        max-width: 299px;
+        height: 109px;
+        padding: 10px 13px 0px 14px;
+    }
+
+    .user-card__content {
+        margin-top: 2px;
+    }
+
+    .testimonials__button {
+        position: absolute;
+        top: 30px;
+        left: 13%;
+    }
+
+    .testimonials_background {
+        background-image: url(../../assets/images/leav_fotoMobile.png);
+        width: 51px;
+        height: 64px;
+        top: 81px;
+        left: 84%;
+    }
+
+    .layout-3-row {
+        max-width: 303px;
+        height: 289px;
+    }
+
+    .footer__block-1 {
+        justify-content: center;
+    }
+    
+    .footer__block-2 {
+        margin-top: 54px;
+    }
+
+    .footer-logo {
+        background-image: url(../../assets/icons/PetStoryonlineMobile.png);
+        width: 127px;
+        height: 20px;
+        display: inline-block;
+        margin-left: 11px;
+    }
+
+    .bamboo-mobile {
+        background-image: url('../../assets/icons/bambooMobile.svg');
+        width: 13px;
+        height: 20px;
+        display: inline-block;
+        right: 55px;
+        top: -6px;
+        position: relative;
+    }
+
+    .block-3_mobile {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 194px;
+    }
+
+    .block3_social-media-link {
+        left: 6px;
+        bottom: 247px;
+    }
+
+    .footer__navigation {
+        margin-left: -2px;
+        margin-bottom: 7px;
+    }
+
+    .navigation__link {
+        padding: 0 15px;
+    }
+
+    .footer__author {
+        margin: 30px 0 22px 79px;
+    }
+
+    .footer__author_mobile {
+        font-weight: 100;
+        font-size: 15px;
+        line-height: 120%;
+        padding-bottom: 12px;
+    } 
 }

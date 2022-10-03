@@ -12,7 +12,7 @@
         <div class="wrapper header__wrapper">
             <div class="header__block-left">
                 <div class="header__logo">
-                    <a href="index.html"><img src="../../assets/icons/logo_footer.png" alt="logo_footer"></a>
+                    <a href="index.html"><span class="logo"></span></a>
                 </div>
                 <nav class="header__navigation">
                     <ul class="navigation">
@@ -23,6 +23,7 @@
                         <li class="navigation__link"><a href="#">Contact us</a></li>
                     </ul>
                 </nav>
+                <span class="burger-menu"></span>
             </div>
             <div class="header__block-right">
                 <a href="https://www.figma.com/file/jfEFwkXVj1WRq7sUHDr8os/PetStory-online" class="header__author">Designed by ©</a>
@@ -55,7 +56,7 @@
                     </div>
                 </div>
             </div>
-            <img class="backstege-background" src="../../assets/images/flower_foto1.png" alt="background-flower">
+            <span class="backstege-background"></span>
         </div>
 
         <div class="pets">
@@ -67,7 +68,7 @@
                         <div class="animal-card__content">
                             <div class="animal-card__content_left">
                                 <h5>giant pandas</h5>
-                                <p>Native to Southwest China</p>
+                                <p class="animal-card__text">Native to Southwest China</p>
                             </div>
                             <div class="animal-card__content_right">
                                 <img src="../../assets/icons/banana-bamboo_icon.png" alt="banana-bamboo">
@@ -79,19 +80,19 @@
                         <div class="animal-card__content">
                             <div class="animal-card__content_left">
                                 <h5>eagles</h5>
-                                <p>Native to South America</p>
+                                <p class="animal-card__text">Native to South America</p>
                             </div>
                             <div class="animal-card__content_right">
                                 <img src="../../assets/icons/meet-fish_icon.png" alt="fish">
                             </div>                            
                         </div>
                     </div>
-                    <div class="pets__animal-card">
+                    <div class="pets__animal-card card-none">
                         <span class="animal-card__img-3"></span>
                         <div class="animal-card__content">
                             <div class="animal-card__content_left">
                                 <h5>gorillas</h5>
-                                <p>Native to Congo</p>
+                                <p class="animal-card__text">Native to Congo</p>
                             </div>
                             <div class="animal-card__content_right">
                                 <img src="../../assets/icons/banana-bamboo_icon.png" alt="banana-bamboo">
@@ -106,7 +107,7 @@
                         <div class="animal-card__content">
                             <div class="animal-card__content_left">
                                 <h5>two-toed sloth</h5>
-                                <p>Mesoamerica, South America</p>
+                                <p class="animal-card__text">Mesoamerica, South America</p>
                             </div>
                             <div class="animal-card__content_right">
                                 <img src="../../assets/icons/banana-bamboo_icon.png" alt="banana-bamboo">
@@ -118,19 +119,19 @@
                         <div class="animal-card__content">
                             <div class="animal-card__content_left">
                                 <h5>cheetahs</h5>
-                                <p>Native to Africa</p>
+                                <p class="animal-card__text">Native to Africa</p>
                             </div>
                             <div class="animal-card__content_right">
                                 <img src="../../assets/icons/meet-fish_icon.png" alt="fish">
                             </div>
                         </div>
                     </div>
-                    <div class="pets__animal-card">
+                    <div class="pets__animal-card card-none">
                         <span class="animal-card__img-6"></span>
                         <div class="animal-card__content">
                             <div class="animal-card__content_left">
                                 <h5>penguins</h5>
-                                <p>Native to Antarctica</p>
+                                <p class="animal-card__text">Native to Antarctica</p>
                             </div>
                             <div class="animal-card__content_right">
                                 <img src="../../assets/icons/meet-fish_icon.png" alt="fish">
@@ -153,7 +154,7 @@
                         <h2 class="h2_light">Pick and feed a friend</h2>
                         <h4 class="pick_subtitle">We know the animals bring you joy, and in these extraordinary times, we’re glad.</h4>
                         <p class="pick_text">During a time when the COVID-19 epidemic is touching all of our lives, we’re proud and glad that people around the world find joy in PetStory.</p>
-                        <p>Even though the zoo has reopened, we need you now more than ever to help us deal with these problems. Please consider a gift to our <a class="link_dark" href="../donate/index.html">Emergency Support Fund .</a></p>
+                        <p class="pick_text_and_link">Even though the zoo has reopened, we need you now more than ever to help us deal with these problems. Please consider a gift to our <a class="link_dark" href="../donate/index.html">Emergency Support Fund .</a></p>
                     </div>
                     <h3 class="title__layout-3-column">How it works</h3>
                     <div class="pick_layout-3-column_wrapper">
@@ -163,11 +164,15 @@
                                 <p class="pick__img-content">Pay with card</p>
                             </div>
                             <img class="pick__arrow" src="../../assets/icons/Vector.svg" alt="arrow">
+                            <span class="pick__arrow-1"></span>
+                            <span class="pick__arrow-1inverted"></span>
                             <div class="pick__card">
                                 <img class="pick__img-zoo" src="../../assets/icons/zoo.svg" alt="zoo">
                                 <p class="pick__img-content">Payment goes to the zoo</p>
                             </div>
                             <img class="pick__arrow" src="../../assets/icons/Vector.svg" alt="arrow">
+                            <span class="pick__arrow-2"></span>
+                            <span class="pick__arrow-2inverted"></span>
                             <div class="pick__card">
                                 <img class="pick__img-monkey" src="../../assets/icons/monkey.svg" alt="monkey">
                                 <p class="pick__img-content">Your favourite animal gets delicious dish</p>
@@ -260,7 +265,8 @@
         <div class="wrapper footer__wrapper">
             <div class="layout-3-row">
                 <div class="footer__block-1">
-                    <a href="index.html"><img src="../../assets/icons/logo_footer.png" alt="logo_footer"></a>
+                    <a href="index.html"><span class="footer-logo"></span></a>
+                    <span class="bamboo-mobile"></span>
                     <form class="footer__form" action="#">
                         <h4>Subscribe to our news</h4>
                         <input type="email" placeholder="Enter your email" required>
@@ -273,7 +279,7 @@
                     </form>
                 </div>
                 <div class="footer__block-3">
-                    <div>
+                    <div class="block-3_mobile">
                         <div class="block3_social-media-link">
                             <a class="footer__links_img" href="https://www.facebook.com/"><img class="footer-icon" src="../../assets/icons/facebook.svg" alt="icon facebook" width="8" height="16"></a>
                             <a class="footer__links" href="https://www.facebook.com/">Facebook</a>
@@ -302,8 +308,8 @@
                         </nav>
                     </div>
                     <div class="footer__author">
-                        <p>Designed by Alisa Samborskaya</p>
-                        <p>©RSSchool & ©Yem Digital 2021</p>
+                        <p class="footer__author_mobile">Designed by Alisa Samborskaya</p>
+                        <p class="footer__author_mobile">©RSSchool & ©Yem Digital 2021</p>
                     </div>
                 </div>
             </div>
