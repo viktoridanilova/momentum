@@ -12,7 +12,7 @@
         <div class="wrapper header__wrapper">
             <div class="header__block-left">
                 <div class="header__logo">
-                    <a href="../../pages/petstory/index.html"><img src="../../assets/icons/logo_footer.png" alt="logo_footer"></a>
+                    <a href="index.html"><span class="logo"></span></a>
                 </div>
                 <nav class="header__navigation">
                     <ul class="navigation">
@@ -23,6 +23,7 @@
                         <li class="navigation__link"><a href="#">Contact us</a></li>
                     </ul>
                 </nav>
+                <span class="burger-menu"></span>
             </div>
             <div class="header__block-right">
                 <a href="https://www.figma.com/file/jfEFwkXVj1WRq7sUHDr8os/PetStory-online" class="header__author">Designed by ©</a>
@@ -46,27 +47,28 @@
                     <div class="block__img">
                         <div class="block__left">
                             <img class="pick-left__number" src="../../assets/icons/4.svg" alt="number" width="41" height="58">
+                            <span class="number_mobile"></span>
                             <span class="pick-left__content">Panda diet for the day.</span>
                         </div>
                         <div class="block__center">
-                            <img src="../../assets/icons/x_icon.svg" alt="x_icon">
+                            <img class="x_icon" src="../../assets/icons/x_icon.svg" alt="x_icon">
                         </div>
                         <div class="block__right">
-                            <img src="../../assets/icons/bg.svg" alt="panda">
+                            <span class="panda" src="../../assets/icons/bg.svg"></span>
                         </div>
                     </div>
                     <span class="pick__amount">Amount</span>
                     <div class="pick__progress-bar">
                         <div class="progress-bar__money">
-                            <input class="progress-bar__money-input" type="radio" name="amount" id="amount5000">
-                            <label class="progress-bar__money-label" for="amount5000">$5000</label>
-                            <div class="progress-bar__line"></div>
-                            <input class="progress-bar__money-input" type="radio" name="amount" id="amount2000">
-                            <label class="progress-bar__money-label" for="amount2000">$2000</label>
-                            <div class="progress-bar__line"></div>
-                            <input class="progress-bar__money-input" type="radio" name="amount" id="amount1000">
-                            <label class="progress-bar__money-label" for="amount1000">$1000</label>
-                            <div class="progress-bar__line"></div>
+                            <input class="progress-bar__money-input none" type="radio" name="amount" id="amount5000">
+                            <label class="progress-bar__money-label none" for="amount5000">$5000</label>
+                            <div class="progress-bar__line none"></div>
+                            <input class="progress-bar__money-input none-page-small" type="radio" name="amount" id="amount2000">
+                            <label class="progress-bar__money-label none-page-small" for="amount2000">$2000</label>
+                            <div class="progress-bar__line none-page-small"></div>
+                            <input class="progress-bar__money-input none-page-small" type="radio" name="amount" id="amount1000">
+                            <label class="progress-bar__money-label none-page-small" for="amount1000">$1000</label>
+                            <div class="progress-bar__line none-page-small"></div>
                             <input class="progress-bar__money-input" type="radio" name="amount" id="amount500">
                             <label class="progress-bar__money-label" for="amount500">$500</label>
                             <div class="progress-bar__line"></div>
@@ -97,7 +99,6 @@
                         <span class="share">Share with your friends on social networks</span> 
                     </div>                       
                 </div>
-
             </div>
         </div>
     </main>
@@ -105,8 +106,9 @@
         <div class="wrapper footer__wrapper">
             <div class="layout-3-row">
                 <div class="footer__block-1">
-                    <a href="../../pages/petstory/index.html"><img src="../../assets/icons/logo_footer.png" alt="logo_footer"></a>
-                    <form action="#">
+                    <a href="index.html"><span class="footer-logo"></span></a>
+                    <span class="bamboo-mobile"></span>
+                    <form class="footer__form" action="#">
                         <h4>Subscribe to our news</h4>
                         <input type="email" placeholder="Enter your email" required>
                         <input type="submit" value="Submit">
@@ -118,7 +120,7 @@
                     </form>
                 </div>
                 <div class="footer__block-3">
-                    <div>
+                    <div class="block-3_mobile">
                         <div class="block3_social-media-link">
                             <a class="footer__links_img" href="https://www.facebook.com/"><img class="footer-icon" src="../../assets/icons/facebook.svg" alt="icon facebook" width="8" height="16"></a>
                             <a class="footer__links" href="https://www.facebook.com/">Facebook</a>
@@ -139,7 +141,7 @@
                     <div class="footer__navigation">
                         <nav>
                             <ul class="navigation">
-                                <li class="navigation__link"><a href="../../pages/petstory/index.html">About</a></li>
+                                <li class="navigation__link"><a class="active" href="index.html">About</a></li>
                                 <li class="navigation__link"><a href="#">Map</a></li>
                                 <li class="navigation__link"><a href="#">Zoos</a></li>
                                 <li class="navigation__link"><a href="#">Contact us</a></li>
@@ -147,8 +149,8 @@
                         </nav>
                     </div>
                     <div class="footer__author">
-                        <p>Designed by Alisa Samborskaya</p>
-                        <p>©RSSchool & ©Yem Digital 2021</p>
+                        <p class="footer__author_mobile">Designed by Alisa Samborskaya</p>
+                        <p class="footer__author_mobile">©RSSchool & ©Yem Digital 2021</p>
                     </div>
                 </div>
             </div>
