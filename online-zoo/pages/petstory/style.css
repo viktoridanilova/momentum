@@ -1119,6 +1119,69 @@ form:invalid input[type="submit"] {
 
 }
 
+@media (max-width: 665px) and (min-width: 320px) {
+    .pick__wrapper {
+        height: 781px;
+        padding-top: 19px;
+    }
+    
+    .wrapper-light {
+        max-width: 640px;
+        height: 741px;
+    }
+    
+    .pick__block {
+        height: 246px;
+        padding: 10px 3px 0px 19px;
+    }
+    
+    .pick_subtitle {
+        font-size: 22px;
+        margin-bottom: 16px;
+    }
+    
+    .title__layout-3-column {
+        margin: 32px 0 18px 0px;
+    }
+    
+    .pick_layout-3-column {
+        max-width: 588px;
+        height: 244px;
+    }
+    
+    .pick__img-content {
+        width: 100%;
+        max-width: 168px;
+        height: 46px;
+        margin-top: 25px;
+    }
+    
+    .pick__arrow {
+        display: none;
+    }
+
+    .pick__arrow-1, .pick__arrow-2 {
+        background-image: url('../../assets/icons/arrow.png');
+        width: 89px;
+        height: 29px;
+        display: inline-block;
+        position: absolute;
+        top: 327px;
+    }
+
+    .pick__arrow-1 {
+        left: 24%;
+    }
+
+    .pick__arrow-2 {
+        left: 57%;
+    }
+    
+    .pick__button {
+        margin-top: -18px;
+    }
+}
+
 @media (max-width: 640px) and (min-width: 320px) {
 
     body {
@@ -1281,67 +1344,6 @@ form:invalid input[type="submit"] {
         margin-left: -2%;
     }
 
-    .pick__wrapper {
-        height: 781px;
-        padding-top: 19px;
-    }
-    
-    .wrapper-light {
-        max-width: 640px;
-        height: 741px;
-    }
-    
-    .pick__block {
-        height: 246px;
-        padding: 10px 3px 0px 19px;
-    }
-    
-    .pick_subtitle {
-        font-size: 22px;
-        margin-bottom: 16px;
-    }
-    
-    .title__layout-3-column {
-        margin: 32px 0 18px 0px;
-    }
-    
-    .pick_layout-3-column {
-        max-width: 588px;
-        height: 244px;
-    }
-    
-    .pick__img-content {
-        width: 100%;
-        max-width: 168px;
-        height: 46px;
-        margin-top: 25px;
-    }
-    
-    .pick__arrow {
-        display: none;
-    }
-
-    .pick__arrow-1, .pick__arrow-2 {
-        background-image: url('../../assets/icons/arrow.png');
-        width: 89px;
-        height: 29px;
-        display: inline-block;
-        position: absolute;
-        top: 327px;
-    }
-
-    .pick__arrow-1 {
-        left: 24%;
-    }
-
-    .pick__arrow-2 {
-        left: 57%;
-    }
-    
-    .pick__button {
-        margin-top: -18px;
-    }
-    
     .testimonials {
         height: 668px;
     }
@@ -1555,11 +1557,7 @@ form:invalid input[type="submit"] {
     }
 }
 
-@media (width: 320px) {
-    body {
-        width: 100%;
-        max-width: 320px;
-    }
+@media (max-width: 420px) and (min-width: 320px) {
 
     h1 {
         width: 128px;
@@ -1567,6 +1565,55 @@ form:invalid input[type="submit"] {
         font-size: 28px;
         padding-top: 18px;
     }
+
+    .watch-online {
+        height: 187px;
+    }
+    
+
+    
+    .watch-online__content {
+        padding-top: 23px;
+        width: 88%;
+    }
+    
+    .content_ellipse {
+        width: 119px;
+        height: 119px;
+        margin-bottom: 0px;
+    }
+
+
+    .pets__button {
+        position: absolute;
+        top: 8px;
+    }
+    
+    .pets_palm {
+        background-image: url(../../assets/images/palm_fotoMobile.png);
+        width: 56px;
+        height: 72px;
+        top: 50px;
+        left: -15.5%;
+    }
+    
+    .pets_strelitzia {
+        background-image: url('../../assets/images/strelitzia_mobile.png');
+        width: 68px;
+        height: 67px;
+        top: 56px;
+        left: 16%;
+    }
+
+}
+
+@media (width: 320px) {
+    body {
+        width: 100%;
+        max-width: 320px;
+    }
+
+   
 
     h2 {
         margin-bottom: 11px;
@@ -1590,25 +1637,10 @@ form:invalid input[type="submit"] {
         left: 91%;
     }
     
-    .watch-online {
-        height: 187px;
-    }
-    
     .watch-online__wrapper {
         background-image: url('../../assets/images/GiantPandaMobile.jpg');
     }
     
-    .watch-online__content {
-        padding-top: 23px;
-        width: 88%;
-    }
-    
-    .content_ellipse {
-        width: 119px;
-        height: 119px;
-        margin-bottom: 0px;
-    }
-
     .button_ellipse-small {
         top: 240px;
         right: 3%;
@@ -1665,27 +1697,6 @@ form:invalid input[type="submit"] {
     .animal-card__img-1, .animal-card__img-2, .animal-card__img-4, .animal-card__img-5 {
         width: 283px;
         height: 285px;
-    }
-
-    .pets__button {
-        position: absolute;
-        top: 8px;
-    }
-    
-    .pets_palm {
-        background-image: url(../../assets/images/palm_fotoMobile.png);
-        width: 56px;
-        height: 72px;
-        top: 50px;
-        left: -15.5%;
-    }
-    
-    .pets_strelitzia {
-        background-image: url('../../assets/images/strelitzia_mobile.png');
-        width: 68px;
-        height: 67px;
-        top: 56px;
-        left: 16%;
     }
 
     .wrapper-light {

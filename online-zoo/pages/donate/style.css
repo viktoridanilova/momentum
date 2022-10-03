@@ -247,6 +247,14 @@ a:hover {
     margin-top: 37px;
 }
 
+.pick-left__number {
+    position: relative;
+    right: 9%;
+    top: 0px;
+    margin-bottom: 21px;
+
+}
+
 .block__center {
     margin: 28px 59px 0px 0px;
 }
@@ -590,6 +598,10 @@ form:invalid input[type="submit"] {
         padding: 26px 0 62px 0;
     }
     
+    .pick-left__number {
+        top: 10px
+    }
+    
     .pick__amount {
         right: 40%;
         bottom: 19px;
@@ -883,7 +895,7 @@ form:invalid input[type="submit"] {
     }
 }
 
-@media (max-width: 600px) and (min-width: 320px) {
+@media (max-width: 618px) and (min-width: 320px) {
 
     h1 {
         font-size: 24px;
