@@ -757,7 +757,12 @@ form:invalid input[type="submit"] {
     }
 
     .header {
-        padding: 11px 20px 14px 29px;
+        padding: 11px 20px 14px 16px;
+    }
+
+    .header__logo {
+        position: relative;
+        left: 2%;
     }
     
     .header__wrapper {
@@ -935,6 +940,11 @@ form:invalid input[type="submit"] {
     
     .pick__button {
         margin-top: 9px;
+    }
+
+    .pick__arrow {
+        position: relative;
+        left: 2%;
     }
 
     .testimonials {
@@ -1517,7 +1527,7 @@ form:invalid input[type="submit"] {
 
     .pick__arrow-1inverted {
         background-image: url('../../assets/icons/arrow-inverted.svg');
-        width: 25px;
+        width: 24px;
         height: 90px;
         display: inline-block;
         position: absolute;
@@ -1640,7 +1650,7 @@ form:invalid input[type="submit"] {
     .watch-online__wrapper {
         background-image: url('../../assets/images/GiantPandaMobile.jpg');
     }
-    
+
     .button_ellipse-small {
         top: 240px;
         right: 3%;

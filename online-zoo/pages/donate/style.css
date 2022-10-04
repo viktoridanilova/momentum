@@ -252,7 +252,6 @@ a:hover {
     right: 9%;
     top: 0px;
     margin-bottom: 21px;
-
 }
 
 .block__center {
@@ -412,6 +411,16 @@ a:hover {
     color: #333B41;
     cursor: pointer;
     padding-left: 5px;
+}
+
+.choice_left {
+    position: relative;
+    right: 21%;
+}
+
+.choice_right {
+    position: relative;
+    left: 11%;
 }
 
 .share {
@@ -599,7 +608,13 @@ form:invalid input[type="submit"] {
     }
     
     .pick-left__number {
-        top: 10px
+        top: 10px;
+        margin-bottom: 21px;
+    }
+
+    .pick-left__content {
+        position: relative;
+        right: 9%;
     }
     
     .pick__amount {
@@ -639,6 +654,16 @@ form:invalid input[type="submit"] {
     .choice {
         margin: 7px 0 -7px 0;
     }   
+
+    .choice_left {
+        position: relative;
+        right: 21%;
+    }
+
+    .choice_right {
+        position: relative;
+        left: 11%;
+    }
 
     .button_ellipse {
         margin-top: 35px;
@@ -852,6 +877,10 @@ form:invalid input[type="submit"] {
         bottom: 31px;
     }
 
+    .choice {
+        margin: 10px 0 27px 0;
+    }
+
     .button_ellipse {
         margin: 5px 0 30px 0;
     }
@@ -965,6 +994,10 @@ form:invalid input[type="submit"] {
         font-size: 16px;
     }
 
+    .button {
+        font-size: 14px;
+    }
+
     .header {
         padding: 6px 11px;
     }
@@ -1071,6 +1104,20 @@ form:invalid input[type="submit"] {
 
     .button_ellipse {
         margin: 0px 0 27px 0;
+    }
+
+    .choice {
+        margin: 6px 0 27px 0;
+    }
+
+    .choice_left {
+        position: relative;
+        right: 21%;
+    }
+
+    .choice_right {
+        position: relative;
+        left: 11%;
     }
 
     .footer__block-1 {
