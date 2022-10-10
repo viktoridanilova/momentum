@@ -1207,7 +1207,7 @@ form:invalid input[type="submit"] {
 
     .wrapper__user-card {
         width: 100%;
-        max-width: 940px;
+        max-width: 879px;
         overflow: hidden;
     }
     
@@ -1218,7 +1218,7 @@ form:invalid input[type="submit"] {
     }
     
     .testimonials__user-card {
-        max-width: 293px;
+        /* max-width: 293px; */
     }
     
     .user-card__content {
