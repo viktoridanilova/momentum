@@ -280,11 +280,38 @@ a:hover {
     overflow: hidden;
 }
 
-.pets__wrapper {
-    height: 872px;
+.carousel {
+    width: 4800px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    left: -1600px;
+}
+
+.pets__wrapper, .pets__wrapper_left, .pets__wrapper_right {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+@keyframes move-right {
+    form {left: -1600px;}
+    to {left: -3200px;}
+}
+
+.transition-right {
+    animation-name: move-right;
+    animation-duration: 3s;
+}
+
+@keyframes move-left {
+    form {left: -1600px;}
+    to {left: 0;}
+}
+
+.transition-left {
+    animation-name: move-left;
+    animation-duration: 3s;
 }
 
 .pets__button-left, .pets__button-right {
@@ -294,6 +321,7 @@ a:hover {
     border: none;
     border-radius: 31px;
     cursor: pointer;
+    z-index: 1;
 }
 
 .pets__button-left {
@@ -322,6 +350,7 @@ a:hover {
     height: 436px;
     display: flex;
     justify-content: space-between;
+
 }
 
 .first {
@@ -348,6 +377,60 @@ a:hover {
     color:white;
     border-radius: 5px;
     transition: .4s linear;
+}
+
+.animal-card__img-1_left {
+    background-image: url('../../assets/images/bear.jpg');
+    background-position: top;
+    width: 366px;
+    height: 366px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.animal-card__img-2_left {
+    background-image: url('../../assets/images/flamingos.jpg');
+    background-position: top;
+    width: 366px;
+    height: 366px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.animal-card__img-3_left {
+    background-image: url('../../assets/images/foxes.jpg');
+    background-position: center;
+    width: 366px;
+    height: 366px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.animal-card__img-4_left {
+    background-image: url('../../assets/images/hippos.jpg');
+    background-position: center;
+    width: 366px;
+    height: 366px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.animal-card__img-5_left {
+    background-image: url('../../assets/images/hummingbird.jpg');
+    background-position: center;
+    width: 366px;
+    height: 366px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.animal-card__img-6_left {
+    background-image: url('../../assets/images/meerkats.jpg');
+    background-position: center;
+    width: 366px;
+    height: 366px;
+    display: inline-block;
+    cursor: pointer;
 }
 
 .animal-card__img-1 {
@@ -398,6 +481,58 @@ a:hover {
     cursor: pointer;
 }
 
+.animal-card__img-1_right {
+    background-image: url('../../assets/images/monkey.jpg');
+    background-position: top;
+    width: 366px;
+    height: 366px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.animal-card__img-2_right {
+    background-image: url('../../assets/images/rabbits.jpg');
+    background-position: bottom;
+    width: 366px;
+    height: 366px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.animal-card__img-3_right {
+    background-image: url('../../assets/images/raccoons.jpg');
+    width: 366px;
+    height: 366px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.animal-card__img-4_right {
+    background-image: url('../../assets/images/rhinos.jpg');
+    background-position: center;
+    width: 366px;
+    height: 366px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.animal-card__img-5_right {
+    background-image: url('../../assets/images/tiger.jpg');
+    width: 366px;
+    height: 366px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.animal-card__img-6_right {
+    background-image: url('../../assets/images/Whitetigers.jpg');
+    background-position: top;
+    width: 366px;
+    height: 366px;
+    display: inline-block;
+    cursor: pointer;
+}
+
 .animal-card__content {
     display: flex;
     align-items: center;
@@ -409,7 +544,6 @@ a:hover {
     display: flex;
     justify-content: space-around;
     position: relative;
-
 }
 
 .pets__button {
@@ -527,6 +661,8 @@ a:hover {
     text-align: center;
 }
 
+
+
 .testimonials {
     width: 100%;
     height: 919px;
@@ -539,15 +675,21 @@ a:hover {
     padding-top: 140px;
 }
 
-
-.layout-4-column {
+.wrapper__user-card {
     width: 100%;
     max-width: 1160px;
+    overflow: hidden;
+}
+
+
+.layout-4-column {
+    width: max-content;
     height: 412px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     margin-top: 47px;
+
 }
 
 .testimonials__user-card {
@@ -563,6 +705,7 @@ a:hover {
     line-height: 120%;
     color: #BDBDBD;
     padding: 14px 19px 0px 16px;
+    margin-right: 29px;
 }
 
 .user-card__name {
@@ -577,11 +720,9 @@ a:hover {
     width: 100%;
     max-width: 237px;
     height: 304px;
-    overflow: hidden;
     margin-top: 11px;
     color: #767474;
 }
-
 
 .testimonials__background-and-button {
     width: 100%;
@@ -614,7 +755,12 @@ a:hover {
     text-transform: none;
 }
 
+.body_scroll {
+    overflow: hidden;
+}
+
 .testimonials__scroll {
+    display: block;
     -webkit-appearance: none;
     appearance: none;
     width: 100%;
@@ -834,6 +980,34 @@ form:invalid input[type="submit"] {
         left: 100%;
     }
 
+    .carousel {
+        width: 3000px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        left: -1000px;
+    }
+
+    @keyframes move-right {
+        form {left: -1000px;}
+        to {left: -2000px;}
+    }
+    
+    .transition-right {
+        animation-name: move-right;
+        animation-duration: 3s;
+    }
+    
+    @keyframes move-left {
+        form {left: -1000px;}
+        to {left: 0;}
+    }
+    
+    .transition-left {
+        animation-name: move-left;
+        animation-duration: 3s;
+    }
+
     .pets {
         height: 1073px;
     }
@@ -860,6 +1034,42 @@ form:invalid input[type="submit"] {
     
     .first {
         margin-bottom: 93px;
+    }
+
+    .animal-card__img-1_left {
+        background-image: url('../../assets/images/bear.jpg');
+        width: 294px;
+        height: 294px;
+    }
+    
+    .animal-card__img-2_left {
+        background-image: url('../../assets/images/flamingos.jpg');
+        width: 294px;
+        height: 294px;
+    }
+    
+    .animal-card__img-3_left {
+        background-image: url('../../assets/images/foxes.jpg');
+        width: 294px;
+        height: 294px;
+    }
+    
+    .animal-card__img-4_left {
+        background-image: url('../../assets/images/hippos.jpg');
+        width: 294px;
+        height: 294px;
+    }
+    
+    .animal-card__img-5_left {
+        background-image: url('../../assets/images/hummingbird.jpg');
+        width: 294px;
+        height: 294px;
+    }
+    
+    .animal-card__img-6_left {
+        background-image: url('../../assets/images/meerkats.jpg');
+        width: 294px;
+        height: 294px;
     }
     
     .animal-card__img-1 {
@@ -894,6 +1104,43 @@ form:invalid input[type="submit"] {
     
     .animal-card__img-6 {
         background-image: url('../../assets/images/PenguinsSmall.jpg');
+        width: 294px;
+        height: 294px;
+    }
+
+    .animal-card__img-1_right {
+        background-image: url('../../assets/images/monkey.jpg');
+        width: 294px;
+        height: 294px;
+    }
+    
+    .animal-card__img-2_right {
+        background-image: url('../../assets/images/rabbits.jpg');
+        width: 294px;
+        height: 294px;
+    }
+    
+    .animal-card__img-3_right {
+        background-image: url('../../assets/images/raccoons.jpg');
+        background-position: right;
+        width: 294px;
+        height: 294px;
+    }
+    
+    .animal-card__img-4_right {
+        background-image: url('../../assets/images/rhinos.jpg');
+        width: 294px;
+        height: 294px;
+    }
+    
+    .animal-card__img-5_right {
+        background-image: url('../../assets/images/tiger.jpg');
+        width: 294px;
+        height: 294px;
+    }
+    
+    .animal-card__img-6_right {
+        background-image: url('../../assets/images/Whitetigers.jpg');
         width: 294px;
         height: 294px;
     }
@@ -957,10 +1204,15 @@ form:invalid input[type="submit"] {
     .testimonials__wrapper {
         padding-top: 100px;
     }
-    
-    .layout-4-column {
+
+    .wrapper__user-card {
         width: 100%;
         max-width: 940px;
+        overflow: hidden;
+    }
+    
+    .layout-4-column {
+        width: max-content;
         height: 412px;
         margin-top: 31px;
     }
@@ -1092,6 +1344,42 @@ form:invalid input[type="submit"] {
         left: 78%;
     }
 
+    .animal-card__img-1_left {
+        background-image: url('../../assets/images/bear.jpg');
+        background-position: top;
+        width: 285px;
+        height: 285px;
+    }
+    
+    .animal-card__img-2_left {
+        background-image: url('../../assets/images/flamingos.jpg');
+        background-position: top;
+        width: 285px;
+        height: 285px;
+    }
+    
+    .animal-card__img-3_left {
+        display: none;
+    }
+    
+    .animal-card__img-4_left {
+        background-image: url('../../assets/images/hippos.jpg');
+        background-position: center;
+        width: 285px;
+        height: 285px;
+    }
+    
+    .animal-card__img-5_left {
+        background-image: url('../../assets/images/hummingbird.jpg');
+        background-position: center;
+        width: 285px;
+        height: 285px;
+    }
+    
+    .animal-card__img-6_left {
+        display: none;
+    }
+
     .animal-card__img-1 {
         background-image: url('../../assets/images/Rectangle5tablet.jpg');
         width: 285px;
@@ -1120,6 +1408,38 @@ form:invalid input[type="submit"] {
         height: 285px;
         display: inline-block;
         cursor: pointer;
+    }
+
+    .animal-card__img-1_right {
+        background-image: url('../../assets/images/monkey.jpg');
+        width: 285px;
+        height: 285px;
+    }
+    
+    .animal-card__img-2_right {
+        background-image: url('../../assets/images/rabbits.jpg');
+        width: 285px;
+        height: 285px;
+    }
+    
+    .animal-card__img-3_right {
+        display: none;
+    }
+    
+    .animal-card__img-4_right {
+        background-image: url('../../assets/images/rhinos.jpg');
+        width: 285px;
+        height: 285px;
+    }
+    
+    .animal-card__img-5_right {
+        background-image: url('../../assets/images/tiger.jpg');
+        width: 285px;
+        height: 285px;
+    }
+    
+    .animal-card__img-6_right {
+        display: none;
     }
     
     .footer__links, .footer__form {
@@ -1238,11 +1558,11 @@ form:invalid input[type="submit"] {
         width:100vw;
         background:#000;
         opacity:0.5;
-        z-index: 1;
+        z-index: 2;
     }
 
     .burger-menu__wrapper {
-        position: absolute;
+        position: fixed;
         justify-content: space-between;
         display: flex;
         width: 100%;
@@ -1288,7 +1608,6 @@ form:invalid input[type="submit"] {
         line-height: 140%;
         color: #333B41;
         cursor: pointer;
-    
     }
     
     .burger-menu__link {
@@ -1378,13 +1697,38 @@ form:invalid input[type="submit"] {
         height: 970px;
     }
     
-    .pets__wrapper {
-        height: 756px;
+    .carousel {
+        width: 1920px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        left: -640px;
+    }
+
+    @keyframes move-right {
+        form {left: -640px;}
+        to {left: -1280px;}
     }
     
+    .transition-right {
+        animation-name: move-right;
+        animation-duration: 3s;
+    }
+    
+    @keyframes move-left {
+        form {left: -640px;}
+        to {left: 0;}
+    }
+    
+    .transition-left {
+        animation-name: move-left;
+        animation-duration: 3s;
+    }
+
     .pets__button-left {
         left: 38%;
         top: 1223px;
+
     }
     
     .pets__button-right {
@@ -1430,6 +1774,71 @@ form:invalid input[type="submit"] {
         margin-left: -2%;
     }
 
+    .wrapper-popup {
+        position: absolute;
+        z-index: 4;
+        padding: 20px 36px 17px 17px;
+        width: 100%;
+        max-width: 320px;
+        height: 428px;
+        background: #F5F7F6;
+        transform: translateY(-440px);
+        transition: .4s linear;
+        top: 290%;
+        left: 25%;
+    }
+
+    .close-popup {
+        background-image: url('../../assets/icons/icon-close.svg');
+        width: 14px;
+        height: 14px;
+        display: none;
+        position: absolute;
+        left: 296px;
+    }
+
+    .popup__user-card {
+        width: 100%;
+        max-width: 267px;
+        height: 391px;
+        background: #F1F3F2;
+        border: 1px solid #FEBDAB;
+        border-radius: 20px;
+        overflow: hidden;
+        font-weight: 300;
+        font-size: 15px;
+        line-height: 120%;
+        color: #BDBDBD;
+        padding: 14px 19px 0px 16px;
+    }
+    
+    .popup-user-card__name {
+        display: flex;
+    }
+    
+    .popup__icon {
+        padding: 0 10px 11px 0;
+    }
+
+    .popup-user-name {
+        color: #000000;
+        font-weight: 400;
+        text-transform: none;
+    }
+    
+    .popup-user-card__content {
+        width: 100%;
+        max-width: 237px;
+        height: 304px;
+        overflow: hidden;
+        margin-top: 11px;
+        color: #767474;
+    }
+    
+    .popup-user-card__content > p {
+        font-size: 15px;
+    }
+
     .testimonials {
         height: 668px;
     }
@@ -1437,10 +1846,17 @@ form:invalid input[type="submit"] {
     .testimonials__wrapper {
         padding-top: 60px;
     }
+
+    .wrapper__user-card {
+        width: 100%;
+        max-width: 600px;
+        height: 389px;
+        overflow: hidden;
+    }
     
     .layout-4-column {
-        max-width: 600px;
-        height: 357px;
+        width: max-content;
+        height: max-content;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -1455,6 +1871,7 @@ form:invalid input[type="submit"] {
         max-width: 600px;
         height: 109px;
         padding: 11px 19px 0px 13px;
+        margin-bottom: 15px;
     }
     
     .user-card__content {
@@ -1699,8 +2116,6 @@ form:invalid input[type="submit"] {
         max-width: 320px;
     }
 
-   
-
     h2 {
         margin-bottom: 11px;
     }
@@ -1763,6 +2178,14 @@ form:invalid input[type="submit"] {
         line-height: 140%;
     }
 
+    .carousel {
+        width: 960px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        left: -320px;
+    }
+
     .pets {
         height: 1530px;
     }
@@ -1780,7 +2203,7 @@ form:invalid input[type="submit"] {
         height: 697px;
     }
 
-    .animal-card__img-1, .animal-card__img-2, .animal-card__img-4, .animal-card__img-5 {
+    .animal-card__img-1, .animal-card__img-2, .animal-card__img-4, .animal-card__img-5, .animal-card__img-1_left, .animal-card__img-2_left, .animal-card__img-4_left, .animal-card__img-5_left, .animal-card__img-1_right, .animal-card__img-2_right, .animal-card__img-4_right, .animal-card__img-5_right {
         width: 283px;
         height: 285px;
     }
@@ -1828,8 +2251,18 @@ form:invalid input[type="submit"] {
     }
     
     .layout-4-column {
-        max-width: 299px;
+        width: max-content;
         margin-top: 19px;
+    }
+
+    .wrapper-popup {
+        top: 345%;
+        left: 0%;
+    }
+
+    .wrapper__user-card {
+        max-width: 299px;
+        height: 376px;
     }
 
     .testimonials__user-card {
