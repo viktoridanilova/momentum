@@ -69,7 +69,6 @@ const showPopup = (event) => {
 userCards.addEventListener('click', showPopup);
 
 closePopup.addEventListener('click', () => {
-    debugger
     popup.style.display = 'none';
     closePopup.style.display = 'none';
     background.style.display = 'none';
