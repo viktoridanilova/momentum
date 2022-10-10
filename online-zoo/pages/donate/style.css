@@ -817,7 +817,7 @@ form:invalid input[type="submit"] {
     }
 
     .burger-menu__wrapper {
-        position: absolute;
+        position: fixed;
         justify-content: space-between;
         display: flex;
         width: 100%;
