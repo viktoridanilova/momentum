@@ -1775,7 +1775,7 @@ form:invalid input[type="submit"] {
     }
 
     .wrapper-popup {
-        position: absolute;
+        position: fixed;
         z-index: 4;
         padding: 20px 36px 17px 17px;
         width: 100%;
@@ -1784,7 +1784,7 @@ form:invalid input[type="submit"] {
         background: #F5F7F6;
         transform: translateY(-440px);
         transition: .4s linear;
-        top: 290%;
+        top: 100px;
         left: 25%;
     }
 
@@ -2256,7 +2256,6 @@ form:invalid input[type="submit"] {
     }
 
     .wrapper-popup {
-        top: 345%;
         left: 0%;
     }
 
