@@ -286,3 +286,148 @@ pageSize.addEventListener('click', (e) => {
     })
 })
 
+/**8. Timer */
+const dateTimeFormat = new Intl.DateTimeFormat('default', { 
+    minute: 'numeric',
+    second: 'numeric',
+    fractionalSecondDigits: 1});
+
+let startDate;
+let diff;
+let savedTime = 0;
+let interval;
+
+function timer() {
+    interval = null;
+    
+    if (interval === null){
+        startDate = Date.now();
+        displayStopWatch();
+        time.innerHTML= "Time:";
+        interval = setInterval(displayStopWatch, 10);
+    } else {
+        clearInterval(interval);
+        interval = null;
+    }
+}
+
+function displayStopWatch() {
+    diff = Date.now() + savedTime - startDate;
+    time.innerHTML= `Time: ${dateTimeFormat.format(new Date(diff))}`;
+}
+
+
+/**9. Moves */
+let movesCount = 0;
+function moved() {
+    ++movesCount
+    moves.innerHTML = `Moves: ${movesCount}`
+}
+
+/**10. Save */
+buttonSave.addEventListener('click', save)
+const savedGamesList = JSON.parse(localStorage.getItem('Saved games')) ? JSON.parse(localStorage.getItem('Saved games')) : []
+function save() {
+    if (matrix?.length) {
+        const savedData = {
+            moves: `Moves: ${movesCount}`,
+            time: time.textContent,
+            size: matrix.length,
+            diff,
+            matrix,
+        };
+        savedGamesList.push(savedData)
+        localStorage.setItem(`Saved games`, JSON.stringify(savedGamesList))
+        clearInterval(interval)
+        timer()
+    }  
+}
+
+/**11. Create saved games popup */
+function createSavedGamesPopup() {
+    const savedGamesPopUp = document.createElement('div');
+    savedGamesPopUp.classList.add('saved-games__pop-up')
+    body.appendChild(savedGamesPopUp);
+
+    const savedGamesTable = document.createElement('div');
+    savedGamesTable.classList.add('saved-games_results')
+    savedGamesPopUp.appendChild(savedGamesTable)
+}
+
+function displaySavedResults() {
+    const savedGames = JSON.parse(localStorage.getItem('Saved games'))
+    const savedGamesTable = document.querySelector('.saved-games_results')
+    const popUp = document.querySelector('.saved-games__pop-up');
+    const resultWrappers = document.querySelectorAll('.saved-game__wrapper')
+    
+    if (resultWrappers.length) resultWrappers.forEach(el => savedGamesTable.removeChild(el))
+    popUp.style.display = "block";
+
+    if (savedGames && savedGames.length + 1 > savedGamesTable.childElementCount) {
+        savedGames.forEach((game, i) => {
+            
+            const gameWrapper = document.createElement('div');
+            gameWrapper.classList.add('saved-game__wrapper')
+            savedGamesTable.appendChild(gameWrapper)
+
+            const gameNumber = document.createElement('div');
+            gameNumber.innerHTML = `Save #${i+1}`
+            const gameMoves = document.createElement('div');
+            gameMoves.innerHTML = game.moves;
+            const gameTime = document.createElement('div')
+            gameTime.innerHTML = game.time;
+            const loadGameButton = document.createElement('button');
+
+            loadGameButton.innerHTML = "Load game"
+            loadGameButton.setAttribute("onclick", `loadSavedGame(${i})`)
+
+            gameWrapper.append(gameNumber, gameMoves, gameTime, loadGameButton)
+        })
+    } else {
+        const noGame = document.createElement('div')
+        noGame.style.textAlign = "center";
+        noGame.style.fontSize = "20px";
+        noGame.classList.add('saved-games_no-game')
+        noGame.innerHTML = "No saved games"
+        if (!savedGamesTable.querySelector('.saved-games_no-game') && savedGamesTable.childElementCount === 1)  savedGamesTable.appendChild(noGame)
+        else if (savedGamesTable.querySelector('.saved-games_no-game')) savedGamesTable.removeChild(noGame)
+    }
+
+    popUp.addEventListener('click', (event) => {
+        if (event.target === popUp) popUp.style.display = "none"
+    })
+}
+
+
+createSavedGamesPopup();
+
+savedGames.addEventListener('click', () => {
+    displaySavedResults()
+})
+
+
+function loadSavedGame(index) {
+    const savedGames = JSON.parse(localStorage.getItem('Saved games'))
+    const sizeButtons = document.querySelectorAll(".button-change-size")
+
+    if (wrapperPage.childElementCount)  {
+        wrapperPage.innerHTML = ""
+        matrix = null
+        items = []
+        movesCount = 0;
+    }
+    gameSize = parseFloat(savedGames[index].size)**2;
+    start(savedGames[index].matrix.flat())
+    savedTime = savedGames[index].diff
+    clearInterval(interval)
+    timer()
+    moves.textContent = savedGames[index].moves;
+    
+    sizeButtons.forEach(el => {
+        console.log(parseFloat(el.getAttribute("id")))
+        if (parseFloat(el.getAttribute("id")) === gameSize) el.classList.add('active');
+        else el.classList.remove('active')
+    })
+    closePopUp()
+}
+
