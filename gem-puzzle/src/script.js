@@ -165,6 +165,7 @@ function getMatrix(arr) {
 }
 
 function setPositionItems(matrix) {
+    console.log(matrix)
     for (let y =0; y < matrix.length; y++) {
         for (let x =0; x < matrix[y].length; x++) {
             const value = matrix[y][x];
@@ -184,13 +185,20 @@ function setNodeStyle (node, x, y) {
 
 /**3. Add music for click */
 
-wrapperPage.addEventListener('click', playMusic);
+const sound = document.createElement('button');
+sound.classList.add('sound')
+movesAndTime.appendChild(sound);
+sound.textContent = 'Mute';
 
-function playMusic() {
-    const audio = new Audio();
-    audio.src = '../music/a59750391ae05cb.mp3';
-    audio.autoplay = true; 
-}
+const audio = new Audio();
+const src = '../music/a59750391ae05cb.mp3';
+audio.src = src;
+let mute = false
+sound.addEventListener('click', () => {
+    mute = !mute
+    audio.src = !mute ? '../music/a59750391ae05cb.mp3' : "";
+})
+
 
 /**4. Random shuffle and start*/
 
@@ -233,7 +241,7 @@ wrapperPage.addEventListener('click', (e) => {
         change(emptyСellCoordinates, buttonCoordinates, matrix);
         setPositionItems(matrix);
         moved()
-        
+        audio.play()
         if(changedMatrix[0] === 0) {
             const firstEl = changedMatrix[0];
             changedMatrix.push(firstEl);
@@ -453,16 +461,26 @@ function checkGameArray(arr) {
 /**13. Win */
 
 function win() {
-    const congratsBlock = document.createElement('div')
-    congratsBlock.classList.add("congrats-block")
-    congratsBlock.innerHTML = "<p class='blocktext'>You won! Congratulations!</p>"
+    const congratsBlock = document.createElement('div');
+    congratsBlock.classList.add("congrats-block");
+    const congratsText = document.createElement('p');
+    congratsBlock.appendChild(congratsText);
+    congratsText.classList.add('blocktext');
+    congratsText.textContent = `Hooray! You solved the puzzle in ${dateTimeFormat.format(new Date(diff))} and ${movesCount} moves!`
     body.appendChild(congratsBlock)
     congratsBlock.style.display = "block"
     setTimeout(() => {
         congratsBlock.style.display = "none"
+        wrapperPage.innerHTML = "";
+        items = []
+        start(values)
+    
     }, 5000)
 
     setToResults()
+
+    
+
 }
 
 /**14. Results */

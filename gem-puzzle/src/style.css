@@ -55,6 +55,18 @@ body {
     font-size: 15px;
 }
 
+.sound {
+    width: 60px;
+    height: 20px;
+    cursor: pointer;
+    background: #fff;
+}
+
+.sound:hover {
+    background: #663b66;
+    color: white;
+}
+
 .wrapper-page {
     width: 100%;
     max-width: 600px;
@@ -181,7 +193,7 @@ body {
 .result__wrapper {
     border: 2px solid #fff;
     border-radius: 10px;
-    width: 30%;
+    width: 50%;
     margin: 10% auto;
     height: 50%;
     background: blanchedalmond;
