@@ -216,3 +216,73 @@ function shuffleArray(arr) {
     .map(({ value }) => value)
 }
 
+/**5. Change position by click */
+const emptyСell = 0
+wrapperPage.addEventListener('click', (e) => {
+    const buttonNode = e.target.closest('.item');
+    if (!buttonNode) {
+        return;
+    }
+
+    const buttonNumber = Number(buttonNode.dataset.matrixId);
+    const buttonCoordinates = findCoordinatesByNumber(buttonNumber, matrix);
+    const emptyСellCoordinates = findCoordinatesByNumber(emptyСell, matrix);
+    const isValid = isValidForChange(buttonCoordinates, emptyСellCoordinates);
+
+    if (isValid) {
+        change(emptyСellCoordinates, buttonCoordinates, matrix);
+        setPositionItems(matrix);
+        moved()
+        
+        if(changedMatrix[0] === 0) {
+            const firstEl = changedMatrix[0];
+            changedMatrix.push(firstEl);
+            changedMatrix.shift()
+        }
+        
+        if (JSON.stringify(values) === JSON.stringify(matrix.flat()) || JSON.stringify(changedMatrix) === JSON.stringify(matrix.flat())) {
+            win()
+        }
+    }
+
+
+});
+
+function findCoordinatesByNumber(number, matrix) {
+    for (let y = 0; y < matrix.length; y++) {
+        for (let x =0; x < matrix[y].length; x++) {
+            if(matrix[y][x] === number) {
+                return {x, y};
+            }
+        }
+    }
+    return null;
+}
+
+function isValidForChange(coordsA, coordsB) {
+    const differenceX = Math.abs(coordsA.x - coordsB.x);
+    const differenceY = Math.abs(coordsA.y - coordsB.y);
+    return (differenceX === 1 || differenceY === 1) && (coordsA.x === coordsB.x || coordsA.y === coordsB.y);
+}
+
+function change(coordsA, coordsB, matrix) {
+    const coordsANumber = matrix[coordsA.y][coordsA.x];
+    matrix[coordsA.y][coordsA.x] = matrix[coordsB.y][coordsB.x];
+    matrix[coordsB.y][coordsB.x] = coordsANumber;
+}
+
+/**6. Change position by dragging the mouse */
+
+
+
+/**7. Size selection*/
+
+pageSize.addEventListener('click', (e) => {
+    const sizeButtons = document.querySelectorAll(".button-change-size")
+    const currentSize = e.target.closest('.button-change-size');
+    sizeButtons.forEach(button => {
+        if (currentSize === button ) button.classList.add('active');
+        else button.classList.remove("active");
+    })
+})
+
