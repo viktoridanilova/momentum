@@ -431,3 +431,89 @@ function loadSavedGame(index) {
     closePopUp()
 }
 
+/**12. Checker  */
+function checkGameArray(arr) {
+    let number = arr.flat().map((it, i, a) => {
+        let sum = 0
+        for(let j = i; j < a.length; j++) {
+            if(it > a[j] && a[j] != 0) sum++
+        }
+        return sum
+    }).reduce((w, c) => w + c, 0)
+    let number2
+    arr.forEach((a, i) => {
+        a.forEach((el, j) => {
+            if(el === 0) number2 = i + 1
+        })
+    })
+    number += number2
+    return number % 2 === arr.length % 2
+}
+
+/**13. Win */
+
+function win() {
+    const congratsBlock = document.createElement('div')
+    congratsBlock.classList.add("congrats-block")
+    congratsBlock.innerHTML = "<p class='blocktext'>You won! Congratulations!</p>"
+    body.appendChild(congratsBlock)
+    congratsBlock.style.display = "block"
+    setTimeout(() => {
+        congratsBlock.style.display = "none"
+    }, 5000)
+
+    setToResults()
+}
+
+/**14. Results */
+const results = []
+function setToResults() {
+    const savedData = {
+        moves: `Moves: ${movesCount}`,
+        time: time.textContent,
+    };
+    results.push(savedData)
+    localStorage.setItem(`Results`, JSON.stringify(results))
+    clearInterval(interval)
+    timer()
+}
+
+function displayResults() {
+    const resultPopUp = document.createElement('div');
+    resultPopUp.classList.add("result__pop-up")
+
+    const resultWrapper = document.createElement('div');
+    resultWrapper.classList.add('result__wrapper');
+    
+    const data = JSON.parse(localStorage.getItem("Results"))
+    
+    if (data) {
+        data.forEach((el, i) => {
+            const resultItem = document.createElement('div');
+            resultItem.classList.add('result-item');
+
+            const gameIdx = document.createElement('div');
+            gameIdx.innerText = `#${i+1}`
+            
+            const moves = document.createElement('div');
+            moves.innerText = el.moves;
+
+            const time = document.createElement('div');
+            time.innerText = el.time;
+
+
+            resultItem.append(gameIdx, moves, time)
+            resultWrapper.appendChild(resultItem)
+            resultPopUp.appendChild(resultWrapper)
+            body.appendChild(resultPopUp)
+        })
+    } else {
+        alert("Need to win at least one game to show results");
+    }
+
+    resultPopUp.addEventListener('click', (event) => {
+        if(event.target === resultPopUp) resultPopUp.style.display = "none"
+    })
+}
+
+buttonResults.addEventListener('click', () => displayResults())
