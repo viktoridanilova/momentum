@@ -182,3 +182,37 @@ function setNodeStyle (node, x, y) {
     node.style.transform = `translate3D(${x * shift}%, ${y * shift}%, 0)`
 }
 
+/**3. Add music for click */
+
+wrapperPage.addEventListener('click', playMusic);
+
+function playMusic() {
+    const audio = new Audio();
+    audio.src = '../music/a59750391ae05cb.mp3';
+    audio.autoplay = true; 
+}
+
+/**4. Random shuffle and start*/
+
+buttonShuffleAndStart.addEventListener('click', () => {
+    if (!items.length && cachedGameSize !== gameSize) start();
+    const mixArray = shuffleArray(matrix.flat());
+    matrix = getMatrix(mixArray);
+    while(!checkGameArray(matrix)) {
+        matrix = getMatrix(shuffleArray(matrix.flat()))
+    }
+
+    setPositionItems(matrix);
+    movesCount = 0;
+    moves.innerHTML = `Moves: ${movesCount}`
+    savedTime = 0
+    timer()
+})
+
+function shuffleArray(arr) {
+    return arr
+    .map(value => ({value, sort: Math.random()}))
+    .sort((a, b) => a.sort - b.sort)
+    .map(({ value }) => value)
+}
+
