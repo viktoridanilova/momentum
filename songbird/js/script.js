@@ -85,4 +85,53 @@ function checkBirdName (birdsObject, element) {
     }
 }
 
+function musicWin () {
+    const audio = new Audio();
+    const srcRight = '../music/jg-032316-sfx-elearning-correct-answer-sound-1.mp3';
+    audio.src = srcRight;
+    audio.play();
+}
+
+function musicWrong () {
+    const audio = new Audio();
+    const srcWrong = '../music/jg-032316-sfx-elearning-incorrect-answer-sound-5.mp3';
+    audio.src = srcWrong;
+    audio.play()
+}
+
+function playNextLevel () {
+    questionsItem.forEach((item, level) => {
+        if (level === currentLevel) {
+            item.classList.add("active")
+        } else {
+            item.classList.remove("active")
+        }
+    })
+}
+
+function clickButtonNext () {
+    buttonNext.classList.add("active-button");
+    buttonNext.addEventListener("click", () => {
+        buttonNext.classList.remove("active-button");
+        reset();
+        playNextLevel();
+        generateBirdName()
+        displayBirds(currentLevel);
+    })
+}
+
+function reset () {
+    resultBirdName.innerHTML = "*****";
+
+    descriptionWrapper.style.display = "none";
+    text.style.display = 'block';
+    resultImg.setAttribute("src", "../image/silhouette.jpg")
+    choiceItem.forEach(item => {
+        item.style.background = "none";
+        item.querySelector(".choice__item-button").style.background = "rgb(168, 163, 163)"
+    })
+    win = false
+    currentLevel++;
+    generateBirdName()
+}
 
