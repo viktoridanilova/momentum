@@ -1,7 +1,5 @@
 import birdsDataEn from './birdsDataEn.js';
-const birdsContainer = document.querySelector(".choice__list");
 const buttonPlayOrStop = document.querySelector('.play');
-const descriptionContainer = document.querySelector(".description");
 const itemsBlock = document.querySelector(".choice__list");
 const descriptionImg = document.querySelector(".description__img");
 const descriptionTitle = document.querySelector(".description__title");
@@ -10,22 +8,103 @@ const descriptionText = document.querySelector(".description__text-description")
 const text = document.querySelector(".description__text");
 const descriptionWrapper = document.querySelector(".wrapper-description");
 const resultBirdName = document.querySelector(".current-bird__name");
-const choiceItemButton = document.querySelector(".choice__item-button");
 const choiceItem = document.querySelectorAll(".choice__item");
 const resultImg = document.querySelector(".current-bird__img");
 const buttonNext = document.querySelector(".button_next");
-const questionsList = document.querySelector(".header__questions-list");
 const questionsItem = document.querySelectorAll(".header__questions-item");
+const audioTime = document.querySelector(".current-time");
+const audioDuration = document.querySelector(".all-time");
+const audioRange = document.querySelector(".player-progress__input");
+const birdAudioTime = document.querySelector(".wrapper .current-time");
+const birdAudioDuration = document.querySelector(".wrapper .all-time");
+const birdAudioRange = document.querySelector(".wrapper .player-progress__input");
+const bidrPlayOrStop = document.querySelector(".wrapper .play");
+const scoreElement = document.querySelector(".header__score span");
+const mainWrapper = document.querySelector(".main__wrapper");
+const volumeInput = document.querySelector(".volume-wrapper input");
+const blockVictory = document.querySelector(".block-victory");
+const blockVictoryContent = document.querySelector(".block-victory__content");
 
+let song = new Audio();
+let birdSong = new Audio();
+let score = undefined;
+let scoreCounter = 5;
+let wonFinalRound = false;
 let win = false
 let currentLevel = 0;
 let birdName
 
 function generateBirdName () {
     birdName = birdsDataEn[currentLevel][generateRandomBird(0,5)].name; 
+    const obj = birdsDataEn[currentLevel].find(birdsObject => birdsObject.name === birdName);
+    song.src = obj.audio;
 }
 
 generateBirdName ()
+
+buttonPlayOrStop.addEventListener("click", () => {
+    buttonPlayOrStop.classList.toggle("pause");
+    if (buttonPlayOrStop.classList.contains('pause')) { 
+        playSong(song);
+    } else {
+        pauseSong(song);
+    }
+})
+
+bidrPlayOrStop.addEventListener("click", () => {
+    bidrPlayOrStop.classList.toggle("pause");
+    if (bidrPlayOrStop.classList.contains('pause')) { 
+        playSong(birdSong);
+    } else {
+        pauseSong(birdSong);
+    }
+})
+
+function playSong (audio) {
+    audio.play();
+}
+
+function pauseSong (audio) {
+    audio.pause();
+}
+
+song.addEventListener("timeupdate", () => initProgressBar(audioRange, audioTime, audioDuration, song, buttonPlayOrStop))
+
+function calculatePercentPlayed(elRange, audio) {
+    let percentage = (audio.currentTime / audio.duration).toFixed(2) * 100;
+    elRange.value = percentage
+}
+
+
+function initProgressBar(elRange, elTime, elDuration, audio, audioButton) {
+    if (audio.duration) {
+        const currentTime = calculateCurrentValue(audio.currentTime);
+        elTime.innerHTML = currentTime;
+        elRange.addEventListener('click', seek);
+        audio.onended = () => {
+            audioButton.classList.add('pause');
+            elTime.innerHTML = '00:00';
+            elDuration.innerHTML = ""
+        };
+        elDuration.innerHTML = calculateCurrentValue(audio.duration)
+        function seek(e) {
+          const percent = e.offsetX / this.offsetWidth;
+          audio.currentTime = percent * audio.duration;
+        }
+        
+        calculatePercentPlayed(elRange, audio);
+    }
+}
+
+function calculateCurrentValue(currentTime) {
+    const currentMinute = parseInt(currentTime / 60) % 60;
+    const currentSecondsLong = currentTime % 60;
+    const currentSeconds = currentSecondsLong.toFixed();
+    const currentTimeFormatted = `${currentMinute < 10 ? `0${currentMinute}`: currentMinute}: ${
+        currentSeconds < 10 ? `0${currentSeconds}` : currentSeconds}`;
+
+    return currentTimeFormatted;
+}
 
 function displayBirds(level) {
     const birdItems = document.querySelectorAll(".choice__item");
@@ -39,13 +118,14 @@ displayBirds(currentLevel)
 
 itemsBlock.addEventListener("click", (event) => {
     if (win === true) return;
-    const clickedElement = event.target.closest('.choice__item')
+    const clickedElement = event.target.closest('.choice__item');
     const name = clickedElement.innerText
     const obj = birdsDataEn[currentLevel].find(birdsObject => birdsObject.name === name);
     if (win === false) {
         displayCardInfo(obj, name);
-        checkBirdName(obj, clickedElement);
-    } 
+        birdSong.addEventListener("timeupdate", () => initProgressBar(birdAudioRange, birdAudioTime, birdAudioDuration, birdSong, bidrPlayOrStop))
+        checkBirdName(obj, clickedElement); 
+    }   
 })
 
 function displayCardInfo(birdsObject) {
@@ -56,6 +136,11 @@ function displayCardInfo(birdsObject) {
     descriptionTitle.innerHTML = birdsObject.name;
     descriptionSubtitle.innerHTML = birdsObject.species;
     descriptionText.innerHTML = birdsObject.description;
+    bidrPlayOrStop.classList.remove("pause");
+    birdAudioRange.value = 0;
+    birdAudioDuration.innerHTML = ""
+    birdAudioTime.innerHTML = ""
+    birdSong.src = birdsObject.audio;
 }
 
 function generateRandomBird(min, max) {
@@ -77,11 +162,16 @@ function checkBirdName (birdsObject, element) {
         element.style.background = "#80c980";
         musicWin();
         win = true;
-        clickButtonNext();
+        showCongratulations(currentLevel);
+        scoreElement.innerHTML = scoreCounter + Number(scoreElement.innerHTML);
+        setNextButtonActive();
     } else {
-        button.style.background = "red";
-        element.style.background = "rgb(169 164 164 / 84%)";
-        musicWrong();
+        if (element.style.background !== "rgba(169, 164, 164, 0.84)") {
+            button.style.background = "red";
+            element.style.background = "rgb(169 164 164 / 84%)";
+            musicWrong();
+            scoreCounter--;
+        }
     }
 }
 
@@ -94,7 +184,7 @@ function musicWin () {
 
 function musicWrong () {
     const audio = new Audio();
-    const srcWrong = '../music/jg-032316-sfx-elearning-incorrect-answer-sound-5.mp3';
+    const srcWrong = '../music/95864731.mp3';
     audio.src = srcWrong;
     audio.play()
 }
@@ -109,20 +199,20 @@ function playNextLevel () {
     })
 }
 
-function clickButtonNext () {
-    buttonNext.classList.add("active-button");
-    buttonNext.addEventListener("click", () => {
-        buttonNext.classList.remove("active-button");
-        reset();
-        playNextLevel();
-        generateBirdName()
-        displayBirds(currentLevel);
-    })
+function setNextButtonActive () {
+    buttonNext.classList.add("active-button");   
 }
+
+buttonNext.addEventListener("click", () => {
+    buttonNext.classList.remove("active-button");
+    reset();
+    playNextLevel();
+    generateBirdName()
+    displayBirds(currentLevel);
+})
 
 function reset () {
     resultBirdName.innerHTML = "*****";
-
     descriptionWrapper.style.display = "none";
     text.style.display = 'block';
     resultImg.setAttribute("src", "../image/silhouette.jpg")
@@ -133,5 +223,29 @@ function reset () {
     win = false
     currentLevel++;
     generateBirdName()
+    scoreCounter = 5;
+    audioTime.innerHTML = "";
+    audioDuration.innerHTML = "";
+    buttonPlayOrStop.classList.toggle("pause");
 }
 
+function showCongratulations (level) {
+    if (level === 5) {
+        currentLevel = 0;
+        wonFinalRound = true;
+        pauseSong(song);
+        mainWrapper.style.display = "none";
+        blockVictory.style.display = "flex";
+        blockVictoryContent.innerHTML = `You passed the quiz and scored ${scoreCounter + Number(scoreElement.innerHTML)} out of 30 possible points!`
+    } else {
+        wonFinalRound = false;
+    }
+}
+
+volumeInput.addEventListener("change", () => {
+    setVolume(volumeInput, song)
+})
+
+function setVolume(inputEl, audio) {
+    audio.volume = inputEl.value / 100;
+}

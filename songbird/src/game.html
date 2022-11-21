@@ -19,7 +19,7 @@
                     <li class="header__nav-item"><a class="header__nav-link" href="">Gallery</a></li>
                 </ul>
             </nav>
-            <span>Score:</span>
+            <span class="header__score">Score: <span>0</span></span>
         </div>
         <div class="header__questions">
             <ul class="header__questions-list">
@@ -33,83 +33,96 @@
         </div>
     </header>
     <main class="main">
-        <div class="current-bird">
-            <img class="current-bird__img" src="../image/silhouette.jpg" alt="Current bird">
-            <div class="current-bird__list-information">
-                <div class="current-bird__name">*****</div>
-                <div class="current-bird__player">
-                    <div class="player">
-                        <div class="player-controls">
-                          <button class="play player-icon"></button>
-                        </div>
-                        <div class="player-progress">
-                            <input class="player-progress__input" type="range">
-                            <div class="player-progress__time">
-                                <div class="current-time"></div>
-                                <div class="all-time"></div>
+        <div class="main__wrapper">
+            <div class="current-bird">
+                <img class="current-bird__img" src="../image/silhouette.jpg" alt="Current bird">
+                <div class="current-bird__list-information">
+                    <div class="current-bird__name">*****</div>
+                    <div class="current-bird__player">
+                        <div class="player">
+                            <div class="player-controls">
+                              <button class="play player-icon"></button>
                             </div>
-                        </div>
-                      </div>
-                </div>
-            </div>
-        </div>
-        <div class="wrapper">
-            <div class="choice__list">
-                <div class="choice__item">
-                    <span class="choice__item-button"></span>
-                    <span class="choice__item-name"></span>
-                </div>
-                <div class="choice__item">
-                    <span class="choice__item-button"></span>
-                    <span class="choice__item-name"></span>
-                </div>
-                <div class="choice__item">
-                    <span class="choice__item-button"></span>
-                    <span class="choice__item-name"></span>
-                </div>
-                <div class="choice__item">
-                    <span class="choice__item-button"></span>
-                    <span class="choice__item-name"></span>
-                </div>
-                <div class="choice__item">
-                    <span class="choice__item-button"></span>
-                    <span class="choice__item-name"></span>
-                </div>
-                <div class="choice__item">
-                    <span class="choice__item-button"></span>
-                    <span class="choice__item-name"></span>
-                </div>
-            </div>
-            <div class="description">
-                <span class="description__text">Listen to the player.<br>Select a bird from the list.</span>
-                <div class="wrapper-description">
-                    <div class="description__info">
-                        <div>
-                            <img class="description__img" src="" alt="">
-                        </div>
-                        <div>
-                            <h2 class="description__title"></h2>
-                            <h3 class="description__subtitle"></h3>
-                            <div class="description__player">
-                                <div class="player-controls">
-                                  <button class="play player-icon"></button>
+                            <div class="player-progress">
+                                <input class="player-progress__input" type="range" value="0">
+                                <div class="player-progress__time">
+                                    <div class="current-time"></div>
+                                    <div class="all-time"></div>
                                 </div>
-                                <div class="player-progress">
-                                    <input class="player-progress__input" type="range">
-                                    <div class="player-progress__time">
-                                        <div class="current-time"></div>
-                                        <div class="all-time"></div>
-                                    </div>
-                                </div>
-                              </div>
-                        </div> 
+                            </div>
+                          </div>
                     </div>
-                    <div class="description__text-description"></div>
+                    <div class="volume-wrapper">
+                        <img src="https://cdn-icons-png.flaticon.com/512/59/59284.png">
+                        <input type="range" class="volume">
+                    </div>
                 </div>
             </div>
+            <div class="wrapper">
+                <div class="choice__list">
+                    <div class="choice__item">
+                        <span class="choice__item-button"></span>
+                        <span class="choice__item-name"></span>
+                    </div>
+                    <div class="choice__item">
+                        <span class="choice__item-button"></span>
+                        <span class="choice__item-name"></span>
+                    </div>
+                    <div class="choice__item">
+                        <span class="choice__item-button"></span>
+                        <span class="choice__item-name"></span>
+                    </div>
+                    <div class="choice__item">
+                        <span class="choice__item-button"></span>
+                        <span class="choice__item-name"></span>
+                    </div>
+                    <div class="choice__item">
+                        <span class="choice__item-button"></span>
+                        <span class="choice__item-name"></span>
+                    </div>
+                    <div class="choice__item">
+                        <span class="choice__item-button"></span>
+                        <span class="choice__item-name"></span>
+                    </div>
+                </div>
+                <div class="description">
+                    <span class="description__text">Listen to the player.<br>Select a bird from the list.</span>
+                    <div class="wrapper-description">
+                        <div class="description__info">
+                            <div>
+                                <img class="description__img" src="" alt="">
+                            </div>
+                            <div class="description__content">
+                                <h2 class="description__title"></h2>
+                                <h3 class="description__subtitle"></h3>
+                                <div class="description__player">
+                                    <div class="player-controls">
+                                      <button class="play player-icon"></button>
+                                    </div>
+                                    <div class="player-progress">
+                                        <input class="player-progress__input" type="range" value="0">
+                                        <div class="player-progress__time">
+                                            <div class="current-time"></div>
+                                            <div class="all-time"></div>
+                                        </div>
+                                    </div>
+                                  </div>
+                            </div> 
+                        </div>
+                        <div class="description__text-description"></div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <button class="button_next">Next Level</button>
+            </div>
         </div>
-        <div>
-            <button class="button_next">Next Level</button>
+        <div class="block-victory">
+            <h2 class="block-victory__title">Congratulations!</h2>
+            <p class="block-victory__content"></p>
+            <form action="../src/game.html">
+                <button class="block-victory__button">Try again</button>
+            </form>
         </div>
     </main> 
 <script type="module" src="../js/script.js"></script>  

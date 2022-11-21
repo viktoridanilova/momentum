@@ -56,7 +56,7 @@ const birdsDataEn = [
       species: 'Passer domesticus',
       description: 'Sparrows are the most famous and recognizable birds. They are easily recognizable by their colorful plumage and perky chirping. Sparrows belong to the synotropic species - they settle close to human habitation.',
       image: 'https://live.staticflickr.com//65535//49366595303_06cf65b07e.jpg',
-      audio: 'https://www.xeno-canto.org/sounds/uploaded/CXFHOPIVAS/XC503224-191020_0134.mp3'
+      audio: 'https://www.xeno-canto.org/sounds/uploaded/CXFHOPIVAS/XC503224-191020_0134.mp3',
     },
     {
       id: 2,

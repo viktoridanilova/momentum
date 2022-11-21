@@ -74,28 +74,24 @@ html {
     justify-content: space-between;
 }
 
-/* .main__conteiner {
-
-} */
-
-
 
 .main__button-start {
-    font-size: 20px;
+    font-size: 30px;
     font-weight: 500;
     width: 200px;
-    height: 50px;
+    height: 200px;
     border: none;
     border-radius: 999px;
     color: black;
-    background: #e6dde7ab;
-    transition: width 1s;
+    background: #e5d8e7ab;
     cursor: pointer;
 }
 
 .main__button-start:hover {
-    width: 300px;
-    background: rgba(28, 78, 129, 0.623);
+    transform: scale(1.2);
+    transition: linear .3s;
+    background: rgba(28, 78, 129, 0.823);
+    color: white;
 }
 
 .footer {
