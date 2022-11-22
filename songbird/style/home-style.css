@@ -30,6 +30,16 @@ html {
     height: 300px;
 }
 
+.active__link {
+    width: 50px;
+    height: 20px;
+    background:  rgb(111, 195, 195);
+    border-radius: 999px;
+    transition: width 1s;
+    padding: 3px 5px;
+    text-align: center;
+}
+
 .header__nav {
     width: 500px;
     max-width: 100%;
@@ -61,10 +71,6 @@ html {
     text-decoration: none;
     color: rgb(4, 4, 81);
     margin: 0 5%;
-}
-
-.header__nav-link:hover {
-    color: white; 
 }
 
 .main, .footer {

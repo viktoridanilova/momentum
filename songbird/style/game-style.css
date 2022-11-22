@@ -72,10 +72,6 @@ html {
     margin: 0 5%;
 }
 
-.header__nav-link:hover {
-    color: white; 
-}
-
 .header__questions {
     background:  rgb(145 214 214 / 50%);
     border: 1px solid gray;
@@ -98,6 +94,16 @@ html {
 
 .active {
     background: rgb(99, 163, 163);
+}
+
+.active__link {
+    width: 50px;
+    height: 20px;
+    background:  rgb(111, 195, 195);
+    border-radius: 999px;
+    transition: width 1s;
+    padding: 3px 5px;
+    text-align: center;
 }
 
 .volume-wrapper {
