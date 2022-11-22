@@ -117,7 +117,6 @@ function displayBirds(level) {
 displayBirds(currentLevel)
 
 itemsBlock.addEventListener("click", (event) => {
-    if (win === true) return;
     const clickedElement = event.target.closest('.choice__item');
     const name = clickedElement.innerText
     const obj = birdsDataEn[currentLevel].find(birdsObject => birdsObject.name === name);
@@ -125,7 +124,9 @@ itemsBlock.addEventListener("click", (event) => {
         displayCardInfo(obj, name);
         birdSong.addEventListener("timeupdate", () => initProgressBar(birdAudioRange, birdAudioTime, birdAudioDuration, birdSong, bidrPlayOrStop))
         checkBirdName(obj, clickedElement); 
-    }   
+    } else {
+        checkBirdName(obj, clickedElement);
+    }
 })
 
 function displayCardInfo(birdsObject) {
@@ -155,22 +156,28 @@ function checkBirdName (birdsObject, element) {
     const name = element.innerText;
     const button = element.querySelector(".choice__item-button");
 
-    if (birdName === name) {
+    if (birdName === name && !win) {
         resultBirdName.innerHTML = name;
         resultImg.setAttribute("src", birdsObject.image)
         button.style.background = "green";
         element.style.background = "#80c980";
         musicWin();
         win = true;
+        pauseSong(song);
+        buttonPlayOrStop.classList.remove("pause");
+        buttonPlayOrStop.classList.add("play");
         showCongratulations(currentLevel);
         scoreElement.innerHTML = scoreCounter + Number(scoreElement.innerHTML);
         setNextButtonActive();
+        
     } else {
-        if (element.style.background !== "rgba(169, 164, 164, 0.84)") {
+        if (element.style.background !== "rgba(169, 164, 164, 0.84)" && !win) {
             button.style.background = "red";
             element.style.background = "rgb(169 164 164 / 84%)";
             musicWrong();
             scoreCounter--;
+        } else {
+            displayCardInfo(birdsObject) 
         }
     }
 }
@@ -203,13 +210,22 @@ function setNextButtonActive () {
     buttonNext.classList.add("active-button");   
 }
 
+
 buttonNext.addEventListener("click", () => {
-    buttonNext.classList.remove("active-button");
-    reset();
-    playNextLevel();
-    generateBirdName()
-    displayBirds(currentLevel);
+    if (win) {
+        buttonNext.classList.remove("active-button");
+        reset();
+        playNextLevel();
+        generateBirdName();
+        displayBirds(currentLevel);
+        buttonPlayOrStop.classList.remove("pause");
+        buttonPlayOrStop.classList.add("play");
+        birdSong.pause()
+        win = false;
+    }
 })
+
+
 
 function reset () {
     resultBirdName.innerHTML = "*****";
@@ -220,13 +236,12 @@ function reset () {
         item.style.background = "none";
         item.querySelector(".choice__item-button").style.background = "rgb(168, 163, 163)"
     })
-    win = false
+    win = false;
     currentLevel++;
-    generateBirdName()
+    generateBirdName();
     scoreCounter = 5;
     audioTime.innerHTML = "";
     audioDuration.innerHTML = "";
-    buttonPlayOrStop.classList.toggle("pause");
 }
 
 function showCongratulations (level) {
