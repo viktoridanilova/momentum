@@ -1,26 +1,25 @@
-import AppLoader from './appLoader';
-
+import { CallbackType, Endpoint, NewsArticles, NewsSources } from './../models';
+import { AppLoader } from './appLoader';
 export class AppController extends AppLoader {
-    getSources(callback console.log(typeof(callback)) ) {
-        super.getResp(
-            {
-                endpoint: 'sources',
-            },
-            callback
-        );
+    private endpoint: Endpoint = {
+        endpoint: 'sources',
+    };
+
+    public getSources(callback: CallbackType<NewsSources>): void {
+        super.getResp(this.endpoint, callback);
     }
 
-    getNews(e, callback) {
-        let target = e.target;
-        const newsContainer = e.currentTarget;
+    public getNews(e: Event, callback: CallbackType<NewsArticles>): void {
+        let target = <Element>e.target;
+        const newsContainer = <Element>e.currentTarget;
 
-        while (target !== newsContainer) {
+        while (target && target !== newsContainer) {
             if (target.classList.contains('source__item')) {
-                const sourceId = target.getAttribute('data-source-id');
+                const sourceId = <string>target.getAttribute('data-source-id');
                 if (newsContainer.getAttribute('data-source') !== sourceId) {
                     newsContainer.setAttribute('data-source', sourceId);
                     super.getResp(
-                        {
+                        <Endpoint>{
                             endpoint: 'everything',
                             options: {
                                 sources: sourceId,
@@ -31,9 +30,7 @@ export class AppController extends AppLoader {
                 }
                 return;
             }
-            target = target.parentNode;
+            target = <Element>target.parentNode;
         }
     }
 }
-
-export default AppController;
