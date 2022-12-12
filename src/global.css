@@ -1,6 +1,17 @@
+html {
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(45deg, #989b96, #4d7e95);
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+}
+
 body {
+    width: 99%;
+    height: 100vh;
     color: #fff;
-    background: #17181c;
+
     font-family: sans-serif;
 }
 
@@ -14,8 +25,10 @@ header h1 {
 }
 
 footer {
-    height: 100px;
+    width: 100%;
+    height: 200px;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
 }
@@ -32,4 +45,30 @@ footer .copyright a:hover {
 }
 footer .copyright:before {
     content: '©';
+}
+
+.footer__list {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.footer__img-github {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.footer__item {
+    font-size: 18px;
+    font-weight: 500;
+    color: black;
+}
+
+.footer__img-rs {
+    width: 100px;
+    height: 40px;
+    cursor: pointer;
 }

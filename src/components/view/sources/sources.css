@@ -22,13 +22,20 @@
 
 .source__item:hover,
 .source__item:focus {
-    border-color: #3fcc59;
-    color: #69db7e;
-    box-shadow: 0 0.5em 0.5em -0.4em #3fcc59;
+    border-color: #3f6ecc;
+    color: #293751;
+    box-shadow: 0 0.5em 0.5em -0.4em #3fabcc;
     transform: translateY(-0.25em);
 }
 
 .source__item-name {
     font-weight: 400;
     white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+    .source__item {
+        margin: 0.3em;
+        padding: 0.5em 1em;
+    }
 }
