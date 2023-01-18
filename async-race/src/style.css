@@ -1,0 +1,90 @@
+body {
+    width: 100%;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    max-width: 300px;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5px 0;
+}
+
+.wrapper > button,
+.buttons-options > button,
+.start-and-stop-button > button, 
+.button-pagination > button {
+    cursor: pointer;
+    background:#8080801a;
+    border: solid 1px orangered;
+}
+
+.wrapper > button:hover,
+.buttons-options > button:hover,
+.start-and-stop-button > button:hover, 
+.button-pagination > button:hover {
+    background: rgba(255, 68, 0, 0.721);
+}
+
+.wrapper-content {
+    width: 100%;
+}
+
+.race-wrapper {
+    display: flex;
+    width: 100%;
+    border-bottom: 3px dashed black;
+    margin-bottom: 10px;
+}
+
+.buttons-options {
+    display: flex;
+    width: 210px;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.start-and-stop-button {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 55px;
+}
+
+.race {
+    width: 90%;
+    display: flex;
+}
+
+.car {
+    mask: url('./image/car.svg') no-repeat center;
+    -webkit-mask: url('./image/car.svg') no-repeat center;
+    width: 90px;
+    height: 70px;
+    position: relative;
+    bottom: -20px;
+}
+
+.finish-flag {
+    position: absolute;
+    right: 10%;
+}
+
+.button-pagination {
+    width: 150px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.table-names {
+    display: flex;
+    width: 50%;
+    font-weight: 600;
+}
+
+.table-names > div {
+    flex: 10%;
+}

@@ -2,6 +2,7 @@ const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const { merge } = require('webpack-merge');
+const  CopyWebpackPlugin  = require('copy-webpack-plugin');
 
 const baseConfig = {
     mode: 'development',
@@ -20,6 +21,11 @@ const baseConfig = {
             filename: 'index.html', 
         }),
         new CleanWebpackPlugin(),
+        new CopyWebpackPlugin({
+            patterns: [
+                { from: './src/image', to: 'image' },
+            ]
+        }),
     ],
 
     module: {
