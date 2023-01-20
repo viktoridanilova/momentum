@@ -2,7 +2,8 @@ body {
     width: 100%;
 }
 
-.wrapper {
+.wrapper,
+.wrapper > form {
     display: flex;
     flex-direction: row;
     width: 100%;
@@ -15,7 +16,8 @@ body {
 .wrapper > button,
 .buttons-options > button,
 .start-and-stop-button > button, 
-.button-pagination > button {
+.button-pagination > button,
+input[type=submit] {
     cursor: pointer;
     background:#8080801a;
     border: solid 1px orangered;
@@ -24,7 +26,8 @@ body {
 .wrapper > button:hover,
 .buttons-options > button:hover,
 .start-and-stop-button > button:hover, 
-.button-pagination > button:hover {
+.button-pagination > button:hover,
+input[type=submit]:hover {
     background: rgba(255, 68, 0, 0.721);
 }
 
