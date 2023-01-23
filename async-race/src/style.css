@@ -91,3 +91,16 @@ input[type=submit]:hover {
 .table-names > div {
     flex: 10%;
 }
+
+/* .move-car {
+    animation: move 3s linear;
+}
+
+@keyframes move {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+    100% {
+        transform: translate3d(200px, 200px, 0);
+    }
+} */

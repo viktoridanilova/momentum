@@ -3,3 +3,8 @@ export interface CarModel {
   color: string;
   id?: number;
 }
+
+export interface EngineData {
+  velocity: number;
+  distance: number;
+}

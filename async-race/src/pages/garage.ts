@@ -1,10 +1,12 @@
-import { CarModel } from './../interfaces';
+import { CarModel, EngineData } from './../interfaces';
 import { Service } from './../service';
 
 class GaragePage {
   public service = new Service();
 
   private bodyWrapper: HTMLElement;
+
+  private wrapperOptionalButtons: HTMLElement = <HTMLElement>document.createElement('div');
 
   private carsBlock: HTMLElement = <HTMLElement>document.createElement('div');
 
@@ -85,21 +87,24 @@ class GaragePage {
     buttonUpdateCar.setAttribute('type', 'submit');
     buttonUpdateCar.setAttribute('value', 'UPDATE');
 
-    const wrapperOptionalButtons: HTMLElement = <HTMLElement>document.createElement('div');
-    this.bodyWrapper.append(wrapperOptionalButtons);
-    wrapperOptionalButtons.classList.add('wrapper');
+    this.bodyWrapper.append(this.wrapperOptionalButtons);
+    this.wrapperOptionalButtons.classList.add('wrapper');
+    this.wrapperOptionalButtons.classList.add('wrapper-race');
 
-    const raceButton: HTMLElement = <HTMLElement>document.createElement('button');
-    wrapperOptionalButtons.append(raceButton);
+    const raceButton: HTMLButtonElement = <HTMLButtonElement>document.createElement('button');
+    this.wrapperOptionalButtons.append(raceButton);
     raceButton.innerHTML = 'RACE';
+    raceButton.classList.add('race__btn');
 
-    const resetButton: HTMLElement = <HTMLElement>document.createElement('button');
-    wrapperOptionalButtons.append(resetButton);
+    const resetButton: HTMLButtonElement = <HTMLButtonElement>document.createElement('button');
+    this.wrapperOptionalButtons.append(resetButton);
     resetButton.innerHTML = 'RESET';
+    resetButton.classList.add('reset__btn');
 
-    const generateCarsButton: HTMLElement = <HTMLElement>document.createElement('button');
-    wrapperOptionalButtons.append(generateCarsButton);
+    const generateCarsButton: HTMLButtonElement = <HTMLButtonElement>document.createElement('button');
+    this.wrapperOptionalButtons.append(generateCarsButton);
     generateCarsButton.innerHTML = 'GENERATE CARS';
+    generateCarsButton.classList.add('generate-cars__btn');
 
     this.bodyWrapper.append(this.titleGarage);
     this.titleGarage.innerHTML = 'Garage ';
@@ -162,10 +167,12 @@ class GaragePage {
 
     const startButton: HTMLElement = <HTMLElement>document.createElement('button');
     startAndStopButton.append(startButton);
+    startButton.classList.add('started');
     startButton.innerHTML = 'A';
 
     const stopButton: HTMLElement = <HTMLElement>document.createElement('button');
     startAndStopButton.append(stopButton);
+    stopButton.classList.add('stopped');
     stopButton.innerHTML = 'B';
 
     const race: HTMLElement = <HTMLElement>document.createElement('div');
@@ -183,6 +190,7 @@ class GaragePage {
     finishFlag.classList.add('finish-flag');
 
     this.selectAndRemoveCar(carButtonsOptions, carModel, carWrapper);
+    this.engineStartAndStop(carWrapper);
   }
 
   public createButtonForPagination() {
@@ -256,13 +264,38 @@ class GaragePage {
     }
   }
 
-  // private engineStarting() {
+  private engineStartAndStop(carWrapper: HTMLElement) {
+    carWrapper.addEventListener('click', async (event) => {
+      const target: Element = <Element>event.target;
+      const status: string = target.className;
+      const carImage: HTMLElement = <HTMLElement>carWrapper.querySelector('.car');
+      const finishImage: HTMLElement = <HTMLElement>carWrapper.querySelector('.finish-flag');
+      const flagStart: HTMLButtonElement = <HTMLButtonElement>carWrapper.querySelector('.started');
+      const flagStop: HTMLButtonElement = <HTMLButtonElement>carWrapper.querySelector('.stopped');
+      flagStop.disabled = true;
 
-  // }
+      if (target.className.includes('started')) {
+        const carId = Number(carWrapper.getAttribute('id'));
+        const engineObjectStart: EngineData = await this.service.getEngineData(carId, status);
+        this.carAnimation(engineObjectStart, carImage, finishImage);
+        flagStart.disabled = true;
+        flagStop.disabled = false;
+      }
+      if (target.className.includes('stopped')) {
+        const carId = Number(carWrapper.getAttribute('id'));
+        const engineObjectStop: EngineData = await this.service.getEngineData(carId, status);
+        console.log(engineObjectStop);
+        carImage.style.transform = 'none';
+        carImage.style.transition = 'none';
+        flagStart.disabled = false;
+      }
+    });
+  }
 
-  // private engineStoping() {
-
-  // }
+  private carAnimation(engineObject: EngineData, carImage: HTMLElement, finishImage: HTMLElement) {
+    carImage.style.transition = `linear ${engineObject.distance / engineObject.velocity}ms`;
+    carImage.style.transform = `translateX(${finishImage.getBoundingClientRect().left}px)`;
+  }
 }
 
 export default GaragePage;

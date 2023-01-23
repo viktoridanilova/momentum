@@ -1,4 +1,4 @@
-import { CarModel } from './interfaces';
+import { CarModel, EngineData } from './interfaces';
 
 export class Service {
   public async showGarage(): Promise<CarModel[]> {
@@ -41,5 +41,13 @@ export class Service {
     fetch(`http://127.0.0.1:3000/garage/${id}`, {
       method: 'DELETE',
     });
+  }
+
+  public async getEngineData(id: number, status: string): Promise<EngineData> {
+    const response = await fetch(`http://127.0.0.1:3000/engine?id=${id}&status=${status}`, {
+      method: 'PATCH',
+    });
+    const data = await response.json();
+    return data;
   }
 }
