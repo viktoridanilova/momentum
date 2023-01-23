@@ -1,6 +1,5 @@
 import Garage from './pages/garage';
 import Winners from './pages/winners';
-// import { Service } from './service';
 import './style.css';
 
 const garage = new Garage();
