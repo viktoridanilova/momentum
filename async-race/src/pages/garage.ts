@@ -22,6 +22,8 @@ class GaragePage {
 
   private currentWinner: number | null = null;
 
+  private result: HTMLElement = <HTMLElement>document.createElement('div');
+
   constructor() {
     this.bodyWrapper = document.body;
     this.startRace();
@@ -159,6 +161,7 @@ class GaragePage {
           carImage.style.transform = 'none';
           carImage.style.transition = 'none';
         });
+        this.result.innerHTML = '';
       }
 
       if (target.className.includes('generate-cars__btn')) {
@@ -172,10 +175,9 @@ class GaragePage {
       const winnerName: HTMLElement = <HTMLElement>winner.querySelector('.name');
       this.promiseArray[Number(this.currentWinner)].then((data) => {
         const winnerTime = (data.distance / data.velocity / 1000).toFixed(1);
-        const result = document.createElement('div');
-        this.bodyWrapper.append(result);
-        result.innerHTML = `${winnerName.textContent} went first in ${winnerTime}`;
-        result.classList.add('wrapper-resalt');
+        this.bodyWrapper.append(this.result);
+        this.result.innerHTML = `${winnerName.textContent} went first in ${winnerTime}`;
+        this.result.classList.add('wrapper-resalt');
       });
     });
   }
