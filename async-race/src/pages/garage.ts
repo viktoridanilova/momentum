@@ -12,6 +12,8 @@ class GaragePage {
 
   private titleGarage: HTMLElement = <HTMLElement>document.createElement('h1');
 
+  private carCounter: HTMLElement = <HTMLElement>document.createElement('span');
+
   public formCreate: HTMLFormElement = <HTMLFormElement>document.createElement('form');
 
   public formUpdate: HTMLFormElement = <HTMLFormElement>document.createElement('form');
@@ -23,6 +25,34 @@ class GaragePage {
   private currentWinner: number | null = null;
 
   private result: HTMLElement = <HTMLElement>document.createElement('div');
+
+  private randomNameCar = ['Audi', 'BMW', 'Ford', 'Honda', 'Hyundai', 'Kia', 'Lada', 'Mazda', 'Toyota', 'Citroen'];
+
+  private randomModelCar = [
+    'C3 Aircross',
+    'CX-30',
+    'A4',
+    'M2',
+    'Cerato',
+    'Camry',
+    'Elantra',
+    'Vesta',
+    'Tourneo Custom',
+    'Rio',
+  ];
+
+  private randomColorCar = [
+    '#815d5e',
+    '#ff4500',
+    '#3951de',
+    '#F08080',
+    '#32CD32',
+    '#8B0000',
+    '#008B8B',
+    '#FFD700',
+    '#8B008B',
+    '#0000FF',
+  ];
 
   constructor() {
     this.bodyWrapper = document.body;
@@ -165,6 +195,19 @@ class GaragePage {
       }
 
       if (target.className.includes('generate-cars__btn')) {
+        for (let i = 0; i < 101; i++) {
+          const randomName = Math.floor(Math.random() * this.randomNameCar.length);
+          const randomModel = Math.floor(Math.random() * this.randomModelCar.length);
+          const randomCar = this.randomNameCar[randomName] + ' ' + this.randomModelCar[randomModel];
+          const randomColor = Math.floor(Math.random() * this.randomColorCar.length);
+          const carObject: CarModel = {
+            name: randomCar,
+            color: this.randomColorCar[randomColor],
+          };
+          this.service.createNewCar(carObject);
+          this.fillCar(carObject, this.carsBlock);
+        }
+        this.carsCounter();
       }
     });
   }
@@ -188,11 +231,11 @@ class GaragePage {
     cars.forEach((el) => {
       this.fillCar(el, this.carsBlock);
     });
-    const carCounter: HTMLElement = <HTMLElement>document.createElement('span');
-    this.titleGarage.append(carCounter);
-    carCounter.innerHTML = `${cars.length}`;
+
+    this.titleGarage.append(this.carCounter);
     this.createNewCar();
     this.createButtonForPagination();
+    this.carsCounter();
   }
 
   private fillCar(carModel: CarModel, carNode: HTMLElement) {
@@ -285,6 +328,7 @@ class GaragePage {
       this.service.createNewCar(carObject);
       this.fillCar(carObject, this.carsBlock);
       this.formCreate.reset();
+      this.carsCounter();
     });
   }
 
@@ -311,7 +355,8 @@ class GaragePage {
       }
       if (target.className.includes('remove')) {
         this.service.deleteCar(carModel, <number>carModel.id);
-        carWrapper.innerHTML = '';
+        carWrapper.remove();
+        this.carsCounter();
       }
     });
   }
@@ -358,6 +403,11 @@ class GaragePage {
   private carAnimation(engineObject: EngineData, carImage: HTMLElement, finishImage: HTMLElement) {
     carImage.style.transition = `linear ${engineObject.distance / engineObject.velocity}ms`;
     carImage.style.transform = `translateX(${finishImage.getBoundingClientRect().left}px)`;
+  }
+
+  private carsCounter() {
+    const cars: NodeListOf<Element> = document.querySelectorAll('.car-block');
+    this.carCounter.innerHTML = `${cars.length}`;
   }
 }
 

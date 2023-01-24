@@ -11,7 +11,8 @@ body.addEventListener('click', (event) => {
   const target: Element = <Element>event.target;
   if (target.className.includes('garage-button')) {
     body.innerHTML = '';
-    garage.createGarageButtons();
+    const newGarage = new Garage();
+    newGarage.createGarageButtons();
   }
   if (target.className.includes('winners-button')) {
     body.innerHTML = '';
