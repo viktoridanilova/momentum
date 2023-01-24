@@ -20,6 +20,8 @@ class GaragePage {
 
   private promiseArray: Array<Promise<EngineData>> = [];
 
+  private currentWinner: number | null = null;
+
   constructor() {
     this.bodyWrapper = document.body;
     this.startRace();
@@ -127,6 +129,7 @@ class GaragePage {
     this.wrapperOptionalButtons.addEventListener('click', (event) => {
       this.promiseArray = [];
       const cars: NodeListOf<Element> = document.querySelectorAll('.car-block');
+      const carImages: HTMLElement = <HTMLElement>document.querySelector('.car');
       const target: Element = <Element>event.target;
       const status = 'started';
 
@@ -139,11 +142,13 @@ class GaragePage {
 
       if (target.className.includes('race__btn')) {
         Promise.all(this.promiseArray).then((data) => {
+          this.currentWinner = data.reduce((acc, curr, i) => (data[acc].velocity > curr.velocity ? acc : i), 0);
           data.forEach((el, i) => {
             const carImage: HTMLElement = <HTMLElement>cars[i].querySelector('.car');
             const finishImage: HTMLElement = <HTMLElement>cars[i].querySelector('.finish-flag');
             this.carAnimation(el, carImage, finishImage);
           });
+          this.stopAnimation(carImages, cars);
         });
       }
 
@@ -158,6 +163,20 @@ class GaragePage {
 
       if (target.className.includes('generate-cars__btn')) {
       }
+    });
+  }
+
+  private stopAnimation(carImages: HTMLElement, cars: NodeListOf<Element>) {
+    carImages.addEventListener('transitionend', () => {
+      const winner = cars[Number(this.currentWinner)];
+      const winnerName: HTMLElement = <HTMLElement>winner.querySelector('.name');
+      this.promiseArray[Number(this.currentWinner)].then((data) => {
+        const winnerTime = (data.distance / data.velocity / 1000).toFixed(1);
+        const result = document.createElement('div');
+        this.bodyWrapper.append(result);
+        result.innerHTML = `${winnerName.textContent} went first in ${winnerTime}`;
+        result.classList.add('wrapper-resalt');
+      });
     });
   }
 
